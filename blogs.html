@@ -1,0 +1,2839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         :root {
+    --nav-bg: #222e3e; /* Pic wala dark navy blue */
+    --text-color: #FFFFFF;
+    /* --hover-color: #ffb703; Orange hover text */
+    --dropdown-bg: #1E2E47; /* Dropdown ka dark blue */
+    /* --cta-bg: #FF8C42;  */
+    /* --cta-color:  color: #222e3e;; */
+    --line-color: rgba(255,255,255,0.1); /* Bareek line */
+  }
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  }
+
+
+  ::selection{
+    background: #fa9a0a;
+    color: #ffffff;
+}
+
+::-moz-selection{
+    background: #fa9a0a;
+    color: #ffffff;
+}
+
+  /* 1. ORANGE SCROLLBAR - Bilkul pic jaisi */
+  html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: #D2D2D4;
+    background: linear-gradient(
+        90deg,
+        rgba(210,210,212,1) 0%,
+        rgba(255,255,255,1) 50%,
+        rgba(210,210,212,1) 100%
+    );
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: #FF8C42;
+}
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: #e6762a; 
+  } */
+
+  /* 2. FIXED NAVBAR */
+  .navbar {
+    position: fixed;
+    top: 0;
+    padding-top: 15px;
+    left: 0;
+    height: 102px;
+    width: 100%;
+    background: var(--nav-bg);
+    z-index: 1000;
+    /* overflow: hidden;  */
+    border-bottom: 1px solid var(--line-color); /* Bareek line neeche */
+  }
+
+ .nav-container{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.nav-menu{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+  .logo img {
+    height: 70px;
+    width: 250px;
+    margin-left: 10px;
+
+  }
+
+  /* .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 22px;
+  } */
+
+  .nav-menu > li {
+    position: relative;
+    
+    
+  }
+
+  .nav-menu > li > a {
+    color: var(--text-color);
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    /* font-weight: 500; */
+    padding: 10px 0;
+    margin-left: 4px;
+    display: flex;
+    flex-direction: column;   /* Text ke niche arrow */
+    align-items: left;
+    justify-content: center;
+    gap: 3px;
+    line-height: 1.2;
+    transition: color 0.3s;
+}
+
+.dropdown-arrow {
+    font-size: 8px;
+    line-height: 2;
+}
+
+  .nav-menu > li > a:hover {
+    color: #ffb703;
+
+  }
+
+ 
+
+  /* 3. DROPDOWN - Hover par same style */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dropdown-bg);
+    min-width: 240px;
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px #ffffff, 0px 2px 7px rgba(163, 162, 162, 0.3);
+    opacity: 0;
+        border-color: white;
+     margin-left: -50px;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+ 
+  .nav-menu > li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown a {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-align: center; /* Pic me center me tha */
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .dropdown a:hover {
+    /* background: rgba(255,255,255,0.05); */
+    color: #ffb703;  }
+
+  /* 4. ORANGE CTA BUTTON */
+  .cta-btn {
+background:  #ffb703;
+    /* color: #222e3e; */
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 14px 10px;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 10;
+    /* margin-left: 5px; */
+   /* font-size: 13px; */
+    /* transition: background 0.3s; */
+    color: #222e3e; font-size: 13.5px; text-align: center; text-decoration: none;
+  }
+  .cta-btn:hover {
+background: linear-gradient(90deg, #febf01 25%, #fa9a0a);
+
+      outline: none;
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 14px 10px;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 10;
+    /* margin-left: 5px; */
+   /* font-size: 13px; */
+    /* transition: background 0.3s; */
+    color: #222e3e; font-size: 13.5px; text-align: center; text-decoration: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Demo content neeche */
+ /* 1. MODAL BACKGROUND OVERLAY + HOVER */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Dark hover background */
+    z-index: 1000;
+    display: none; /* Default band */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .modal-overlay.active { display: flex; opacity: 1; }
+
+  /* 2. MODAL BOX - 2 HISSE */
+  .modal-box {
+    display: flex;
+    width: 90%;
+    max-width: 900px;
+    height: 100vh; /* Screen ka 90% */
+    max-height: 650px;
+    background: #ffffff;
+    /* border-radius: 6px; */
+    overflow: hidden; /* Bahar kuch na jaye */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  .modal-overlay.active .modal-box { transform: scale(1); }
+
+  /* LEFT SIDE - FIXED, SCROLL NAHI HOGA */
+  .modal-left {
+    width: 50%;
+    background: #1E2E47;
+    color: var(--text-color);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .hh { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; }
+  .modal-left h4 {     font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff; }
+  .modal-left h2 {     font-family: Arial, Helvetica, sans-serif; font-size: 32px; color:#f5b400; font-weight: 700; }
+  .modal-left p {     font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #ffffff; }
+
+  .modal-right{
+    width: 60%;
+    padding: 30px 35px;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+ overflow: hidden;
+    /* Firefox */
+        margin-top: -20px;
+
+    scrollbar-width: 50px;
+    scrollbar-color: #999 transparent;
+}
+.form-scroll::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+.form-scroll{
+    height: 100%;
+    overflow-y: auto;
+    
+    padding-right: 20px;   /* jitna zyada karogi utna scrollbar left aayega */
+    margin-right: -10px;   
+}
+
+/* Chrome, Edge */
+
+
+.modal-right::-webkit-scrollbar-track{
+    
+    background: transparent;   /* Background remove */
+}
+
+.modal-right::-webkit-scrollbar-thumb{
+    background: #999;
+    border-radius: 20px;
+    border: none;
+}
+  .modal-right h3 { font-family: 'Playfair Display', serif; font-size: 28px; text-align: center; margin-bottom: 8px; color: #222; }
+  .modal-right > p {     font-family: Arial, Helvetica, sans-serif;text-align: center; font-size: 16px; color: #555; margin-bottom: 20px; }
+
+  /* FORM STYLING */
+  .form-group { margin-bottom: 12px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--hover-color);
+    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+  }
+  .form-group textarea { resize: vertical; min-height: 70px; }
+  .form-group input[type="file"] { padding: 8px; }
+
+  .checkbox-group { margin: 20px 0; }
+  .checkbox-group h4 { text-align: center; font-size: 22px; font-weight: 70; margin-bottom: 12px; }
+  .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; font-family: Arial, Helvetica, sans-serif; gap: 8px 15px; font-size: 14px; }
+  .checkbox-grid label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #f5b400;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 70;
+    /* text-transform: uppercase; */
+
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+
+
+
+
+  
+  .submit-btn:hover { background: #f5b400; }
+
+ .back img{
+    width: 300px;
+    height: 80px;
+    position: relative;
+    left: 30px;
+    top:-40px;
+ } 
+  
+
+
+.hamburger{
+    display:none;
+    width:35px;
+    height:28px;
+    cursor:pointer;
+    position:relative;
+}
+
+.hamburger span{
+    position:absolute;
+    width:100%;
+    height:3px;
+    background:#fff;
+    border-radius:5px;
+    left:0;
+    transition:.35s ease;
+}
+
+.hamburger span:nth-child(1){
+    top:0;
+}
+
+.hamburger span:nth-child(2){
+    top:12px;
+}
+
+.hamburger span:nth-child(3){
+    top:24px;
+}
+
+/* OPEN STATE */
+
+.hamburger.open span:nth-child(1){
+    transform:rotate(45deg);
+    top:12px;
+}
+
+.hamburger.open span:nth-child(2){
+    opacity:0;
+}
+
+.hamburger.open span:nth-child(3){
+    transform:rotate(-45deg);
+    top:12px;
+}
+
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   LAPTOP SMALL (1024px)
+========================= */
+/* @media (max-width: 1040px){
+  .nav-menu{
+    gap: 12px;
+  }
+
+  .cta-btn{
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .logo img{
+    width: 200px;
+  }
+} */
+
+
+
+
+
+
+@media  (max-width:992px){
+
+/* Navbar */
+
+.hamburger{
+    display:block;
+}
+
+.cta-btn{
+    display:none;
+}
+.logo img {
+    height: 50px;
+    width: 190px;
+    margin-left: 10px;
+
+  }
+.nav-menu{
+    position:fixed;
+    top:99px;
+    left:-100%;
+    width:100%;
+    height:calc(100vh - 102px);
+
+    background:#222e3e;
+ 
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+    padding:35px 20px;
+
+    gap:22px;
+
+    overflow-y:auto;
+
+    transition:.35s;
+}
+
+.nav-menu.active{
+    left:0;
+}
+
+.nav-menu>li{
+    margin-top:-12px
+}
+
+.nav-menu>li>a{
+  position:relative;
+  top:-85px;
+  /* padding:8px; */
+    margin:0;
+    text-align:center;
+    align-items:center;
+    font-size:15px;
+}
+
+.dropdown{
+    position:static;
+    display:none;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    background:transparent;
+    box-shadow:none;
+    margin:0;
+    padding:0;
+}
+
+/* Hero */
+
+
+}
+
+/* =========================
+   TABLET (768px)
+========================= */
+@media (max-width: 768px){
+
+  .hamburger{
+    display: block;
+  }
+
+ .nav-menu{
+    position: fixed;
+    top:102px;
+    left:-100%;
+    width:100%;
+    height:calc(100vh - 102px);
+
+    background:#222e3e;
+
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+
+    padding:30px 20px 80px;
+
+    gap:20px;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    transition:.35s ease;
+}
+
+  .nav-menu.active{
+    left: 0;
+  }
+  .nav-menu > li{
+    width:30%;
+    text-align:center;
+}
+
+.nav-menu > li > a{
+  padding:10px;
+    margin-left:0;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  
+}
+
+.dropdown{
+    text-align:center;
+    padding-left:0;
+    border-bottom:1px solid #ffb703;
+    padding-bottom:12px;
+    margin-bottom:12px;
+}
+
+.dropdown a{
+    text-align:center;
+}
+
+.nav-menu::-webkit-scrollbar{
+    width:0;
+}
+
+.nav-menu{
+    scrollbar-width:none;
+}
+
+  /* CTA BUTTON HIDE ON TABLET */
+  .cta-btn{
+    display: none;
+  }
+
+  .dropdown{
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width:600px){
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:8a0px;
+    padding-top:10px;
+}
+
+.logo img{
+    margin-top: 20px;
+    width:150px;
+    height:auto;
+}
+
+.nav-menu{
+    position: fixed;
+    top: 102px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 102px);
+
+    background: #222e3e;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 30 20px 20px;   /* upar ka gap remove */
+    gap: 0;                 /* items ka extra gap remove */
+
+    overflow-y: auto;
+    transition: .35s ease;
+}
+
+
+.nav-menu > li{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.nav-menu > li > a{
+    padding:14px 0;
+    margin:0;
+}}
+
+
+
+@media (max-width: 400px){
+
+  .hamburger{
+    display: block;
+  }
+
+ .nav-menu{
+    position: fixed;
+    top: 102px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 102px);
+
+    background: #222e3e;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 30 20px 20px;   /* upar ka gap remove */
+    gap: 0;                 /* items ka extra gap remove */
+
+    overflow-y: auto;
+    transition: .35s ease;
+}
+
+  .nav-menu.active{
+    left: 0;
+  }
+ .nav-menu > li{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.nav-menu > li > a{
+    padding:14px 0;
+    margin:0;
+}
+.dropdown{
+    text-align:center;
+    padding-left:0;
+    border-bottom:1px solid #ffb703;
+    padding-bottom:12px;
+    margin-bottom:12px;
+}
+
+.dropdown a{
+    text-align:center;
+}
+
+.nav-menu::-webkit-scrollbar{
+    width:0;
+}
+
+.nav-menu{
+    scrollbar-width:none;
+}
+
+  /* CTA BUTTON HIDE ON TABLET */
+  .cta-btn{
+    display: none;
+  }
+
+  .dropdown{
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding-left: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Orange line - start me navbar ke peeche */
+
+/* =====================================
+        TABLET
+===================================== */
+
+@media (max-width:991px){
+
+.modal-box{
+    width:95%;
+    max-width:700px;
+    max-height:90vh;
+}
+
+.modal-left{
+    width:35%;
+    padding:25px 20px;
+}
+
+.modal-left h2{
+    font-size:26px;
+}
+
+.modal-right{
+    width:65%;
+    padding:25px;
+}
+
+.back img{
+    width:200px;
+    height:auto;
+    left:0;
+    top:0;
+}
+
+.hh{
+    width:60px;
+    height:60px;
+}
+
+.checkbox-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+
+/* =====================================
+            MOBILE
+===================================== */
+
+@media (max-width:768px){
+
+.modal-box{
+    display:block;
+    width:90%;
+    max-width:700px;
+    height:auto;
+    max-height:100vh;
+    overflow:hidden;
+}
+
+/* Left side hide */
+
+.modal-left{
+    display:none;
+}
+
+/* Form full width */
+
+.modal-right{
+    width:100%;
+    margin-top:0;
+    padding:25px 20px;
+    overflow:hidden;
+}
+
+.form-scroll{
+    height: 85vh;
+    overflow-y:auto;
+    padding-right:10px;
+    margin-right:0;
+}
+
+.modal-right h3{
+    font-size:30px;
+}
+
+.modal-right>p{
+    font-size:15px;
+}
+
+.checkbox-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:15px;
+    padding:13px;
+}
+
+.submit-btn{
+    width:100%;
+    height:52px;
+    margin-top: -10px;
+    font-size:16px;
+}
+
+}
+@media (max-width:425px){
+
+.modal-box{
+    display:block;
+    width:90%;
+    max-width:400px;
+    height:auto;
+    max-height:100vh;
+    overflow:hidden;
+}
+
+/* Left side hide */
+
+.modal-left{
+    display:none;
+}
+
+/* Form full width */
+
+.modal-right{
+    width:100%;
+    margin-top:0;
+    padding:25px 20px;
+    overflow:hidden;
+}
+
+.form-scroll{
+    height: 85vh;
+    overflow-y:auto;
+    padding-right:10px;
+    margin-right:0;
+}
+
+.modal-right h3{
+    font-size:26px;
+}
+
+.modal-right>p{
+    font-size:15px;
+}
+
+.checkbox-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:15px;
+    padding:13px;
+}
+
+.submit-btn{
+    width:100%;
+    height:52px;
+    margin-top: -10px;
+    font-size:16px;
+}
+
+}
+
+/* =====================================
+        SMALL MOBILE
+===================================== */
+/* 
+@media (max-width:480px){
+
+.modal-box{
+    width:96%;
+    max-height:92vh;
+}
+
+.modal-right{
+    padding:20px 15px;
+}
+
+.modal-right h3{
+    font-size:22px;
+}
+
+.modal-right>p{
+    font-size:14px;
+}
+
+.checkbox-group h4{
+    font-size:18px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:14px;
+    padding:12px;
+}
+
+.checkbox-grid label{
+    font-size:13px;
+}
+
+.submit-btn{
+    font-size:15px;
+}
+
+} */
+
+
+/* =====================================
+        EXTRA SMALL
+===================================== */
+
+/* @media (max-width:360px){
+
+.modal-right{
+    padding:18px 12px;
+}
+
+.modal-right h3{
+    font-size:20px;
+}
+
+.modal-right>p{
+    font-size:13px;
+}
+
+.checkbox-group h4{
+    font-size:17px;
+}
+
+.checkbox-grid label{
+    font-size:12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:13px;
+}
+
+} */
+
+
+
+/* Orange Scroll Line */
+/* Orange Gradient Bar */
+.Gradients{
+    position: fixed;
+    top: 85px;          /* Start me navbar ke thora andar */
+    left: 0;
+    width: 100%;
+    height: 4px;
+
+    box-shadow: 0 2px 12px rgb(98, 97, 97);
+
+    transition: top .35s ease;
+    z-index: 999;       /* Navbar (1000) se neeche */
+}
+
+/* Scroll hone ke baad */
+.Gradients.scrolled{
+    top: 97px;         /* Yahan uski final position */
+}
+
+
+/* Orange line - start me navbar ke peeche */
+
+
+
+
+/* Close button hidden by default */
+.modal-close-btn{
+    display:none;
+}
+
+/* Mobile only */
+@media (max-width:768px){
+
+.modal-close-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:absolute;
+    top:12px;
+    right:12px;
+
+    width:38px;
+    height:38px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#f5b400;
+    color:#222e3e;
+
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+
+    z-index:9999;
+}
+
+.modal-right{
+    position:relative;
+    padding-top:55px;
+}
+
+.modal-close-btn:hover{
+    background:#fa9a0a;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  .site-footer {
+    background: linear-gradient(to bottom, #222e3e 0%, #222e3e 100%); /* pic wala dark bg */
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    padding: 70px 6% 0 6%;
+  
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    letter-spacing: 0.4px;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr; /* About bara, baaki 3 chote */
+    gap: 80px; /* PIC JESA BARA GAP */
+  }
+
+  /* LOGO */
+ 
+  
+
+  /* ABOUT TEXT */
+  .footer-about p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #ffffff; /* halka grey blue */
+  }
+
+  /* HEADINGS */
+  .footer-col h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #f5b400; /* orange heading */
+    margin-bottom: 25px;
+    font-weight: 400;
+  }
+
+  /* LINKS */
+  .footer-col ul {
+    list-style: none;
+  }
+  .footer-col ul li {
+    margin-bottom: 14px; /* PIC JESA GAP */
+  }
+  .footer-col ul li a {
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover {
+    color: #F08A4A;
+  }
+
+  /* BOTTOM BAR */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 60px;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  /* MOBILE */
+  @media(max-width: 1100px) {
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+  }
+
+
+  
+@media (max-width:768px){
+
+.site-footer{
+    padding:50px 5% 0;
+}
+
+.footer-container{
+    grid-template-columns:1fr;
+    gap:35px;
+}
+
+/* Mobile par sirf text center hoga */
+
+.footer-about,
+.footer-col{
+    text-align:center;
+}
+
+.footer-logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.footer-about img{
+    width:200px;
+    height:auto;
+}
+
+.footer-about p{
+    font-size:15px;
+}
+
+.footer-col ul{
+    padding:0;
+}
+
+.footer-bottom{
+    margin-top:40px;
+    font-size:15px;
+}
+
+}
+
+
+
+
+
+
+
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+
+
+  .popup-overlay {
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+  }
+  .popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .popup-box {
+    background: #fff;
+    width: 90%;
+    height: auto;
+    max-width: 580px;
+    padding: 20px 40px;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  .popup-overlay.active .popup-box {
+    transform: scale(1);
+  }
+
+  /* CLOSE BUTTON */
+  .popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: #4A4A4A;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 30px;
+    transition: background 0.3s;
+  }
+  .popup-close:hover { background: #f5b400; }
+
+  /* HEADING */
+  .popup-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-top: 5px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  /* 20% OFF ANIMATION */
+  .popup-discount {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #f5b400; /* orange */
+    margin-bottom: 15px;
+    animation: pulse 1.5s infinite; /* bara chota */
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  /* TEXT */
+  .popup-box p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14.5px;
+    color: #3f3f3f;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  /* FORM */
+  .popup-form input {
+    width: 100%;
+    
+    padding: 12px 15px;
+    border: 1px solid #f5b400;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+  }
+  .popup-form input:focus { border-color: #f5b400; }
+  
+  .popup-form .phone-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 10px;
+    margin-bottom: 15px;
+  }
+  .popup-form .phone-group span { margin-right: 8px; font-size: 18px; }
+  .popup-form .phone-group input { border: none; margin: 0; padding-left: 0; }
+
+  .popup-btn {
+    background: #f5b400;
+    color: #fff;
+    width: 120px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0px auto 0 auto;
+    display: block;
+  }
+  .popup-btn:hover { background: #f5b400; }
+
+  /* MOBILE */
+  @media(max-width: 767px) {
+   
+    .popup-box { padding: 25px 20px; height: auto;  }
+    .popup-discount { font-size: 34px; }
+    .popup-box h2 { font-size: 20px; }
+    .popup-btn {padding: 8px; margin-top: -10px;}
+    
+  }
+@media (max-width:767px){
+
+html,
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    background:#fff;
+}
+
+footer{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+}
+
+body > *:last-child{
+    margin-bottom:0 !important;
+}
+
+}
+
+
+
+
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+
+
+.blog-intro-section {
+ background-color: #fa9a0a13;
+   padding: 60px 50px;
+  margin-top: 90px;
+}
+
+.blog-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  position: relative;
+}
+
+.blog-content {
+  flex: 1;
+  color: #5a5a5a;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.blog-title {
+  font-size: 40px;
+  color: #010d38;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  text-decoration: underline;
+  text-decoration-color: #f5b400;
+  text-underline-offset: 8px;
+}
+
+.blog-sub {
+  font-size: 18px;
+  /* margin-bottom: 25px; */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #1a1919;
+  line-height: 1.4;
+}
+
+.blog-content h3 {
+  font-size: 22px;
+  color: #010d38;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.blog-content h4 {
+  font-size: 16px;
+  color: #4a5a7a;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.blog-content p {
+  margin-bottom: 15px;
+   font-size: 18px;
+  /* margin-bottom: 25px; */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #1a1919;
+  line-height: 1.4;
+}
+
+.blog-sidebar{
+    width:220px;
+    position:relative;
+}
+
+.jump-btn{
+    position:fixed;
+    top:330px;          /* Navbar ke neeche */
+    display: inline-block;
+  background:linear-gradient(135deg, #ffb703, #fa9a0a);
+
+  color: #010d38;
+  padding: 12px 20px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+    transition:.3s;
+    z-index:100;
+}
+
+.jump-btn.stop{
+    position:absolute;
+    top:auto;
+    bottom:0;
+}
+
+/* ==========================================
+   BLOG INTRO RESPONSIVE
+========================================== */
+
+/* ---------- 991px ---------- */
+@media (max-width:991px){
+
+.blog-intro-section{
+    padding:50px 35px;
+}
+
+.blog-container{
+    gap:30px;
+    align-items:flex-start;
+}
+
+.blog-content{
+    width:100%;
+}
+
+.blog-title{
+    font-size:34px;
+    line-height:1.35;
+}
+
+.blog-sub{
+    font-size:17px;
+}
+
+.blog-content p{
+    font-size:17px;
+    line-height:1.7;
+}
+
+.blog-content h3{
+    font-size:21px;
+}
+
+.blog-sidebar{
+    width:180px;
+}
+
+.jump-btn{
+    top:250px;
+    padding:11px 18px;
+    font-size:13px;
+}
+
+}
+
+
+/* ---------- 768px ---------- */
+@media (max-width:768px){
+
+.blog-intro-section{
+    padding:40px 25px;
+}
+
+.blog-container{
+    display:block;
+}
+
+.blog-content{
+    width:100%;
+}
+
+.blog-title{
+    font-size:30px;
+    line-height:1.35;
+}
+
+.blog-sub{
+    font-size:16px;
+}
+
+.blog-content h3{
+    font-size:20px;
+}
+
+.blog-content p{
+    font-size:16px;
+    line-height:1.7;
+}
+
+/* Fixed Button Remove */
+
+.blog-sidebar{
+    display:none;
+}
+
+.jump-btn{
+    display:none;
+}
+
+}
+
+
+/* ---------- 600px ---------- */
+@media (max-width:600px){
+
+.blog-intro-section{
+    padding:35px 20px;
+}
+
+.blog-title{
+    font-size:34px;
+}
+
+.blog-sub{
+    font-size:15px;
+}
+
+.blog-content h3{
+    font-size:21px;
+}
+
+.blog-content p{
+    font-size:15px;
+    line-height:1.7;
+}
+
+}
+
+
+/* ---------- 425px ---------- */
+@media (max-width:425px){
+
+.blog-intro-section{
+    padding:30px 18px;
+}
+
+.blog-title{
+    font-size:32px;
+}
+
+.blog-sub{
+    font-size:14px;
+}
+
+.blog-content h3{
+    font-size:21px;
+}
+
+.blog-content p{
+    font-size:14px;
+    line-height:1.7;
+}
+
+}
+
+
+/* ---------- 360px & Below ---------- */
+
+
+
+
+
+.spa-blog-wrap {
+  background: #fa9a0a13;
+  padding: 50px 60px;
+}
+
+.spa-blog-grid {
+
+     width: 1010px;
+    
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 35px 200px;
+}
+
+.spa-blog-item {
+ 
+     max-width: 90%;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.07);
+  overflow: hidden;
+  
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.spa-blog-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+
+.spa-blog-top {
+  position: relative;
+  /* background: #0f1f3d; */
+  color: #fff;
+  padding: 25px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.spa-blog-top img {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  background-position: center;
+ background-size: cover;
+  /* clip-path: ellipse(60% 100% at 100% 50%); */
+}
+
+.spa-blog-badge {
+  background: #fff;
+  color: #0f1f3d;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 3px;
+  
+  display: inline-block;
+  margin-bottom: 12px;
+  width: fit-content;
+  z-index: 2;
+}
+
+.spa-blog-toptitle {
+  font-size: 16px;
+  line-height: 1.4;
+  color: #f59e42;
+  font-weight: 600;
+  z-index: 2;
+  max-width: 55%;
+}
+
+.spa-blog-bottom {
+  padding: 20px 22px 22px 22px;
+}
+
+.spa-blog-title {
+  font-size: 22px;
+  color: #010d38;
+  font-weight: 600;
+  font-family:'Times New Roman', Times, serif;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.spa-blog-excerpt {
+  font-size: 16px;
+  color: #818182;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #f59e42;
+}
+
+.spa-blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.spa-blog-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.spa-blog-author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  
+vertical-align: middle;
+  object-fit: cover;
+  background-position: center;
+ background-size: cover;
+}
+
+.spa-blog-author span {
+ font-size: 16px;
+  color: #818182;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* line-height: 1.6; */
+  /* margin-bottom: 15px;
+  padding-bottom: 15px; */
+  /* border-bottom: 1px solid #e5e7eb; */
+  display: block;
+}
+
+.spa-blog-author strong {
+  font-size: 20px;
+  color: #374151;
+  font-weight: 500;
+}
+
+.spa-blog-info {
+  text-align: right;
+}
+
+.spa-blog-info .spa-time {
+  font-size: 13px;
+  /* font-size: 16px; */
+  color: #818182;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* line-height: 1.6;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e5e7eb; */
+  display: block;
+}
+
+.spa-blog-info .spa-date {
+  font-size: 12px;
+  /* font-size: 16px; */
+  color: #818182;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  /* line-height: 1.6; */
+ 
+  /* border-bottom: 1px solid #e5e7eb; */
+}
+
+
+
+/* ==========================================
+   SPA BLOG RESPONSIVE
+========================================== */
+
+/* ---------- 991px ---------- */
+@media (max-width:991px){
+
+.spa-blog-wrap{
+    padding:45px 35px;
+}
+
+.spa-blog-grid{
+    width:100%;
+    grid-template-columns:repeat(2, minmax(0,1fr));
+    gap:30px;
+    margin:0;
+}
+
+.spa-blog-item{
+    max-width:100%;
+}
+
+.spa-blog-title{
+    font-size:20px;
+}
+
+.spa-blog-excerpt{
+    font-size:15px;
+}
+
+.spa-blog-author strong{
+    font-size:18px;
+}
+
+}
+
+
+/* ---------- 768px ---------- */
+@media (max-width:768px){
+
+.spa-blog-wrap{
+    padding:40px 25px;
+}
+
+.spa-blog-grid{
+    width:100%;
+    grid-template-columns:1fr;
+    gap:28px;
+    margin:0;
+}
+
+.spa-blog-item{
+    max-width:100%;
+}
+
+.spa-blog-top{
+    height:220px;
+}
+
+.spa-blog-title{
+    font-size:21px;
+}
+
+.spa-blog-excerpt{
+    font-size:15px;
+}
+
+}
+
+
+/* ---------- 600px ---------- */
+@media (max-width:600px){
+
+.spa-blog-wrap{
+    padding:35px 20px;
+}
+
+.spa-blog-grid{
+    width:100%;
+    gap:24px;
+}
+
+.spa-blog-top{
+    height:200px;
+}
+
+.spa-blog-bottom{
+    padding:18px;
+}
+
+.spa-blog-title{
+    font-size:19px;
+}
+
+.spa-blog-excerpt{
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.spa-blog-author img{
+    width:45px;
+    height:45px;
+}
+
+.spa-blog-author strong{
+    font-size:17px;
+}
+
+}
+
+
+/* ---------- 425px ---------- */
+@media (max-width:425px){
+
+.spa-blog-wrap{
+    padding:30px 18px;
+}
+
+.spa-blog-top{
+    height:180px;
+}
+
+.spa-blog-title{
+    font-size:18px;
+}
+
+.spa-blog-excerpt{
+    font-size:13.5px;
+}
+
+.spa-blog-meta{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:15px;
+}
+
+.spa-blog-info{
+    text-align:left;
+}
+
+}
+
+
+/* ---------- 360px ---------- */
+@media (max-width:360px){
+
+.spa-blog-wrap{
+    padding:25px 15px;
+}
+
+.spa-blog-top{
+    height:170px;
+}
+
+.spa-blog-bottom{
+    padding:15px;
+}
+
+.spa-blog-title{
+    font-size:17px;
+}
+
+.spa-blog-excerpt{
+    font-size:13px;
+}
+
+.spa-blog-author strong{
+    font-size:16px;
+}
+
+}
+
+    </style>
+</head>
+<body>
+    <div class="Gradients"></div>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="logo.webp" alt="Logo"> <!-- Apna logo.png yahan lagao -->
+      </a>
+      <!-- HAMBURGER ICON -->
+<div class="hamburger" id="hamburger">
+  <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        
+        <li>
+            <a href="#">
+    <span>Services</span>
+    <span class="dropdown-arrow">▼</span>
+  </a>
+          <ul class="dropdown">
+            <a href="editing.html">Book Editing</a>
+            <a href="proofreading.html">Proofreading</a>
+            <a href="layout.html">Book Layout</a>
+            <a href="cover.html">Book Cover Design</a>
+            <a href="publishing.html">Childrens Book Publishing</a>
+            <a href="illustration.html">Book Illustration</a>
+            <a href="marketing.html">Book Marketing</a>
+            <a href="audio.html">Audiobook Publishing</a>
+            <!-- <a href="#">Author Website</a> -->
+          </ul>
+        </li>
+
+        <li>
+<a href="#">
+    <span>Locations</span>
+    <span class="dropdown-arrow">▼</span>
+  </a>          <ul class="dropdown">
+            <a href="lucationS.html">Book Publishing Sydney</a>
+            <a href="B.html">Book Publishing Brisbane</a>
+           <a href="P.html">Book Publishing Perth</a>
+            <a href="A.html">Book Publishing Adelaide</a>
+            <a href="M.html">Book Publishing Melbourne</a>
+          </ul>
+        </li>
+
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="freeQuote.html">Free Quote</a></li>
+        <!-- <li><a href="#" class="cta-btn" style="color: #222e3e; font-size: 14px; text-align: center;">BOOK A 30-MINUTE DISCOVERY CALL</a></li> -->
+      </ul>
+      <a href="#" class="cta-btn openModalBtn" >BOOK A 30-MINUTE DISCOVERY CALL</a>
+    </div>
+    <!-- <div class="nav-scroll-line"></div> -->
+  </nav>
+
+
+
+<section class="blog-intro-section">
+  <div class="blog-container">
+    
+    <div class="blog-content">
+      <h1 class="blog-title"> Thought Self Publishing Blogs & Insights for Australian Authors</h1>
+      <p class="blog-sub">Practical insights, expert guidance, and real strategies to help authors successfully navigate and thrive in Australia's Book Publishing landscape.</p>
+
+      <p>Publishing a book is one of the most important decisions you will make as an author. But between formatting, platform selection, cover design, and distribution, the process can feel overwhelming fast especially without the right guidance.</p>
+
+      <h3>That is exactly what this publishing blog page is built for.</h3>
+      <p>Self Publishing Australia is a dedicated resource for authors who want real, actionable publishing insights without the guesswork. Whether you are new to publishing, or have titles already live on Amazon, you will find practical book publishing tips, step-by-step self publishing guides and honest industry analysis for the Australian market.</p>
+
+      <h3>What Makes these Blog Different</h3>
+      <p>Most writing blogs are built around the US publishing market. They reference USD pricing, American ISBNs, and platforms that do not always apply cleanly to Australian authors navigating AUD costs, GST obligations, Thorpe-Bowker registration, and the National Library's legal deposit requirements.</p>
+
+      <p>Every article on this blog is written with the Aussie author experience at the centre. You will not need to mentally convert advice or wonder whether it applies to you. It does because it was built for you.</p>
+
+      <h3>What You Will Find Here</h3>
+      <p>These blog covers every stage of the self publishing journey, from first draft to live listing and beyond.</p>
+
+      <h3>Self Publishing Guides</h3>
+      <p>Step-by-step, easy-to-follow guides to help authors take control of their publishing journey from manuscript prep to final upload.</p>
+
+      <h3>Amazon KDP Tips</h3>
+      <p>Learn about royalties, profitable keywords, categories, pricing strategies, and upcoming royalty changes affecting Australian authors.</p>
+
+      <h3>Book Publishing Tips for Every Budget</h3>
+      <p>Explore editing tiers, formatting options, cover design investment levels, and when DIY publishing makes sense.</p>
+
+      <h3>Author Resources Australia</h3>
+      <p>Discover trusted editors, designers, distributors, legal deposit information, and valuable Australian publishing resources.</p>
+
+      <h3>Book Marketing Advice</h3>
+      <p>Learn launch strategies, Amazon optimisation, backend keywords, reader engagement, and long-term book sales techniques.</p>
+
+      <h3>Book Design and Layout</h3>
+      <p>Understand professional cover design, interior formatting, KDP requirements, and what separates quality publishing from poor formatting.</p>
+
+      <h3>Children's Book Publishing</h3>
+      <p>Explore illustration specs, trim sizes, print quality standards, and fixed-format ebook requirements for children's books.</p>
+
+      <h3>Start Here</h3>
+      <p>If you are new to self publishing, begin with our complete <i>Self Publishing Australia Complete Guide 2026</i> — a full walkthrough of the process from manuscript to live listing across multiple platforms.</p>
+
+      <p>New articles are constantly published. Browse by category, bookmark what matters, and return whenever you need a simple answer to your next publishing question.</p>
+    </div>
+
+    <div class="blog-sidebar">
+      <a href="#blogs" class="jump-btn">Jump to Read Blogs ↓</a>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="spa-blog-wrap">
+  <div class="spa-blog-grid">
+
+    <!-- Card 1 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="self-publishing-in-australia-complete-guide-2026.jpg.webp" alt="Blog 1">
+      </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Self Publishing Australia : Complete Self Publishing Guide for Australian Authors 2026</h3>
+        <p class="spa-blog-excerpt">Learn self-publishing in Australia 2026 including costs, printing, cities, companies, and step-by-step guide to getting your book published.</p>
+       <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">June 23 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="self-publishing-melbourne-step-by-step-guide.webp" alt="Blog 2">
+         </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Self Publishing Melbourne: Step by Step Guide for Australian Authors</h3>
+        <p class="spa-blog-excerpt">Melbourne authors are publishing smarter now. They want control, better margins, and a faster route to market. That is exactly where self publishing Melbourne stands out.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">June 23 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="self-publishing-cost-in-australia-2026-breakdown.webp" alt="Blog 3">
+       </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Self Publishing Cost in Australia : 2026 Breakdown</h3>
+        <p class="spa-blog-excerpt">Self publishing cost in Australia is not one fixed figure. It changes with editing depth, design quality, printing method, and how far you want the book to travel.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">June 29 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="cost-of-self-publishing-a-book-in-sydney.webp" alt="Blog 4">
+     </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Cost Of Self Publishing a Book in Sydney</h3>
+        <p class="spa-blog-excerpt">Understanding the cost of self publishing a book in Sydney is not just about numbers. It is about knowing where to invest and where to stay lean.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">June 30 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="book-publishing-cost-what-authors-should-budget.webp" alt="Blog 5">
+      </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Book Publishing Cost: What Authors Should Budget</h3>
+        <p class="spa-blog-excerpt">Understanding book publishing cost is not about chasing the lowest number. It is about knowing where your money creates real impact.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">July 1 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="book-publication-cost-complete-pricing-guide.webp" alt="Blog 6">
+      </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Book Publication Cost: Complete Pricing Guide</h3>
+        <p class="spa-blog-excerpt">How much does publication actually cost? The answer depends on your goals. The price involves preparing a viable budget that supports quality, reach, and long-term.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">July 2 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 7 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="publishing-cost-of-a-book-hidden-fees-exposed.webp" alt="Blog 7">
+        </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Publishing Cost Of a Book: Hidden Fees Exposed</h3>
+        <p class="spa-blog-excerpt">The publishing cost of a book is often misunderstood. Most authors plan for editing, design, and printing. Fewer plans for what happen around those stages. That is where budgets break.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">July 6 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 8 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="getting-a-book-published-in-australia-traditional-vs-self.webp" alt="Blog 8">
+    </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Getting a Book Published in Australia: Traditional Vs Self</h3>
+        <p class="spa-blog-excerpt">Getting a book published in Australia is no longer limited to one path. Authors now choose between traditional publishing and self-publishing based on control, speed, and financial return.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">Apr 30 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 9 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="book-publishers-adelaide-best-options-for-sa-authors.webp" alt="Blog 9">
+        
+      </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">Book Publishers Adelaide: Best Option For SA Authors</h3>
+        <p class="spa-blog-excerpt">Choosing between book publishers in Adelaide is no longer a simple decision. South Australian authors now have two clear paths. Traditional publishing offers structure and industry backing.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">Apr 30 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 10 -->
+    <article class="spa-blog-item">
+      <div class="spa-blog-top">
+        <img src="HOW-TO-FIND-RELIABLE-SELF-PUBLISHING-COMPANIES-IN-AUSTRALIA.webp" alt="Blog 10">
+
+      </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">How to fine Reliable Self Publishing Companies in Australia</h3>
+        <p class="spa-blog-excerpt">Finding the right self publishing companies Australia is not as simple as comparing prices.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">May 4 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 11 to 13 Dummy -->
+    <article class="spa-blog-item">
+        <div class="spa-blog-top">
+            <img src="SELF-PUBLISHING-COMPANIES-LA-CARTE-VS-FULL-SERVICE.webp">
+         </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">How to fine Reliable Self Publishing Companies in Australia</h3>
+        <p class="spa-blog-excerpt">Finding the right self publishing companies Australia is not as simple as comparing prices.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">May 4 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="spa-blog-item"><div class="spa-blog-top"><img src="SELF-PRINT-BOOK-DIY-VS-PROFESSIONAL-PRINTING.webp"> </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">How to fine Reliable Self Publishing Companies in Australia</h3>
+        <p class="spa-blog-excerpt">Finding the right self publishing companies Australia is not as simple as comparing prices.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">May 4 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+    <article class="spa-blog-item"><div class="spa-blog-top"><img src="SELF-PUBLISH-BOOK-PRINTING-PRINTING-OPTIONS-COMPARED.webp"> </div>
+      <div class="spa-blog-bottom">
+        <h3 class="spa-blog-title">How to fine Reliable Self Publishing Companies in Australia</h3>
+        <p class="spa-blog-excerpt">Finding the right self publishing companies Australia is not as simple as comparing prices.</p>
+        <div class="spa-blog-meta">
+          <div class="spa-blog-author">
+            <img src="Harrison-Clarke-img.webp" alt="James Wilson">
+            <div>
+              <span>Author</span>
+              <strong>James Wilson</strong>
+            </div>
+          </div>
+          <div class="spa-blog-info">
+            <span class="spa-time">10 mins</span>
+            <span class="spa-date">May 4 2026</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <!-- COL 1: ABOUT -->
+      <div class="footer-about">
+        <div class="footer-logo">
+          <img src="logo.webp" width="240" height="80" alt="">
+        </div>
+        <p>Self Publishing Australia is dedicated to helping new and experienced authors publish professionally on Amazon KDP and other leading global platforms. Our full-service business includes editing, formatting, cover design, publishing and marketing, so you keep 100% ownership and royalties. Australia-wide authors trust Self Publishing Australia to make their publishing journey easy with a transparent, proven process.</p>
+      </div>
+
+      <!-- COL 2: QUICK LINKS -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Blogs</a></li>
+          <li><a href="#">Free Quote</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3: SERVICES -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Book Editing</a></li>
+          <li><a href="#">Proofreading</a></li>
+          <li><a href="#">Book Layout</a></li>
+          <li><a href="#">Book Cover Design</a></li>
+          <li><a href="#">Children's Book Publishing</a></li>
+          <li><a href="#">Book Illustration</a></li>
+          <li><a href="#">Book Marketing</a></li>
+          <li><a href="#">Audiobook Publishing</a></li>
+          <li><a href="#">Author Website</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 4: LOCATIONS + PACKAGES -->
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="#">Book Publishing Sydney</a></li>
+          <li><a href="#">Book Publishing Melbourne</a></li>
+          <li><a href="#">Book Publishing Brisbane</a></li>
+          <li><a href="#">Book Publishing Perth</a></li>
+          <li><a href="#">Book Publishing Adelaide</a></li>
+        </ul>
+        
+        <h4 style="margin-top: 35px;">Packages</h4>
+        <ul>
+          <li><a href="#">Manuscript Rescue</a></li>
+          <li><a href="#">The Custom Package</a></li>
+          <li><a href="#">Multi Platform Package</a></li>
+          <li><a href="#">Global Distribution Package</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+      © 2026 Self Publishing Australia. All Rights Reserved.
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <!-- KUCH BHI CONTENT YAHAN -->
+  <!-- <h1 style="text-align:center; margin-top:100px;"></h1> -->
+
+  <!-- POPUP -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <button class="popup-close" id="closePopup">×</button>
+      
+      <h2>Time to Launch Big</h2>
+      <div class="popup-discount">20% OFF</div>
+      <p>Get expert, author-friendly publishing that sells—quality, speed & support at the best price today!</p>
+
+      <form class="popup-form" id="popupForm">
+        <input type="text" placeholder="Enter Your Name" required>
+        <input type="email" placeholder="Enter Your Email" required>
+        <input type="text" placeholder="Enter Your Country" required>
+        
+        <div class="phone-group">
+          <span>🇦🇺</span>
+          <input type="text" placeholder="+61" required>
+        </div>
+
+        <button type="submit" class="popup-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- 1. MODAL POPUP -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <!-- LEFT SIDE -->
+       
+      <div class="modal-left">
+        <div class="back">
+        <img src="logo.webp" alt="" >
+       </div><br>
+        <img class="hh" src="Harrison-Clarke.webp" alt="Harrison Clarke"> <!-- Demo pic -->
+        <h4>Harrison Clarke</h4>
+        <h2>Discovery Call</h2>
+        <p>Book a Free, No-Obligation Call to Discuss Your Publishing Needs.</p>
+      </div>
+
+      <!-- RIGHT SIDE SCROLL -->
+      <div class="modal-right">
+        <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+        <div class="form-scroll">
+        <h3>Reach Millions of Readers</h3>
+        <p>Self-publish print and digital books, and reach millions of readers around the world on Amazon.</p>
+        
+        <form id="discoveryForm" novalidate>
+          <div class="form-group"><input type="text" placeholder="Full Name" name="name" required></div>
+          <div class="form-group"><input type="email" placeholder="Email Address" name="email" required></div>
+          <div class="form-group"><input type="text" placeholder="Book Title" name="bookTitle" required></div>
+          <div class="form-group">
+            <select name="genre" required>
+              <option value="">Select Genre</option>
+              <option>Fiction</option><option>Non-Fiction</option><option>Biography</option><option>Children</option>
+            </select>
+          </div>
+          <div class="form-group"><input type="tel" placeholder="Phone Number" name="phone" required></div>
+          <div class="form-group"><input type="file" name="file"></div>
+          <div class="form-group"><textarea placeholder="Tell us about your Project" name="project"></textarea></div>
+          <div class="form-group">
+            <select name="country" required>
+              <option value="">Select Country</option>
+              <option>Australia</option><option>Pakistan</option><option>USA</option><option>UK</option>
+            </select>
+            </div>
+       
+
+          <div class="checkbox-group">
+            <h4>What services are you looking for?</h4>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="services" value="Book Editing"> Book Editing</label>
+              <label><input type="checkbox" name="services" value="Proofreading"> Proofreading</label>
+              <label><input type="checkbox" name="services" value="Book Layout"> Book Layout</label>
+              <label><input type="checkbox" name="services" value="Book Cover Design"> Book Cover Design</label>
+              <label><input type="checkbox" name="services" value="Childrens Book Publishing"> Childrens Book Publishing</label>
+              <label><input type="checkbox" name="services" value="Book Illustration"> Book Illustration</label>
+              <label><input type="checkbox" name="services" value="Book Marketing"> Book Marketing</label>
+              <label><input type="checkbox" name="services" value="Audiobook Publishing"> Audiobook Publishing</label>
+              <label><input type="checkbox" name="services" value="Author Website"> Author Website</label>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+ 
+
+
+ <script>
+  const modal = document.getElementById('modalOverlay');
+const openButtons = document.querySelectorAll('.openModalBtn');
+  const form = document.getElementById('discoveryForm');
+
+openButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    });
+});
+
+  // 2. BACKGROUND PAR CLICK = FORM CLOSE
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) { // Sirf background par click
+      modal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+  });
+
+  // 3. FORM VALIDATION - KHALI SUBMIT = ERROR
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Page reload roko
+    
+    if (!form.checkValidity()) {
+      form.reportValidity(); // Browser ka default error "Please fill out this field"
+      return;
+    }
+    
+    alert('Form Submitted Successfully!'); // Yahan API call lagegi
+    modal.classList.remove('active');
+    document.body.classList.remove('modal-open');
+    form.reset();
+  });
+
+
+
+
+
+
+
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navMenu.classList.toggle("active");
+});
+
+
+
+
+
+
+
+const dropdownParents = document.querySelectorAll(".nav-menu > li");
+
+dropdownParents.forEach((item) => {
+  item.addEventListener("click", () => {
+
+    // sirf mobile/tablet pe kaam kare
+    if (window.innerWidth <= 768) {
+
+      let dropdown = item.querySelector(".dropdown");
+
+      if (dropdown) {
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      }
+    }
+
+  });
+});
+
+
+const navbar = document.getElementById("navbar");
+const gradient = document.querySelector(".Gradients");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 0) {
+        navbar.classList.add("scrolled");
+        gradient.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+        gradient.classList.remove("scrolled");
+    }
+
+});
+
+
+
+
+
+
+
+
+// FORM VALIDATION - SAME AS PEHLE
+
+
+  // PAGE LOAD PAR POPUP KHUD OPEN
+  window.addEventListener('load', function() {
+    document.getElementById('popup').classList.add('active');
+  });
+
+  // CROSS PAR CLOSE
+  document.getElementById('closePopup').addEventListener('click', function() {
+    document.getElementById('popup').classList.remove('active');
+  });
+
+  // OVERLAY PAR CLICK KARO TO BHI CLOSE
+  document.getElementById('popup').addEventListener('click', function(e) {
+    if(e.target === this) {
+      this.classList.remove('active');
+    }
+  });
+
+  // FORM SUBMIT
+  document.getElementById('popupForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Thank you! We will contact you soon.');
+    document.getElementById('popup').classList.remove('active');
+  });
+
+
+
+
+
+
+
+
+  const closeBtn = document.getElementById("modalCloseBtn");
+  closeBtn.addEventListener("click", function () {
+    modal.classList.remove("active");
+    document.body.classList.remove("modal-open");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const blogSection = document.querySelector(".blog-intro-section");
+const sidebar = document.querySelector(".blog-sidebar");
+const jumpBtn = document.querySelector(".jump-btn");
+
+window.addEventListener("scroll", () => {
+
+    const sectionRect = blogSection.getBoundingClientRect();
+    const sectionBottom = sectionRect.bottom;
+
+    // Jab footer ke qareeb pohanch jaye
+    if (sectionBottom <= (jumpBtn.offsetHeight + 350)) {
+
+        jumpBtn.classList.add("stop");
+
+    } else {
+
+        jumpBtn.classList.remove("stop");
+
+    }
+
+});
+</script>
+
+</body>
+</html>

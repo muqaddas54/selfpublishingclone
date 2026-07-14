@@ -1,0 +1,2751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         :root {
+    --nav-bg: #222e3e; /* Pic wala dark navy blue */
+    --text-color: #FFFFFF;
+    /* --hover-color: #ffb703; Orange hover text */
+    --dropdown-bg: #1E2E47; /* Dropdown ka dark blue */
+    /* --cta-bg: #FF8C42;  */
+    /* --cta-color:  color: #222e3e;; */
+    --line-color: rgba(255,255,255,0.1); /* Bareek line */
+  }
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: Georgia, 'Times New Roman', Times, serif; */
+  }
+
+
+  ::selection{
+    background: #fa9a0a;
+    color: #ffffff;
+}
+
+::-moz-selection{
+    background: #fa9a0a;
+    color: #ffffff;
+}
+
+  /* 1. ORANGE SCROLLBAR - Bilkul pic jaisi */
+  html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+    background: #D2D2D4;
+    background: linear-gradient(
+        90deg,
+        rgba(210,210,212,1) 0%,
+        rgba(255,255,255,1) 50%,
+        rgba(210,210,212,1) 100%
+    );
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+    background: #FF8C42;
+}
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: #e6762a; 
+  } */
+
+  /* 2. FIXED NAVBAR */
+  .navbar {
+    position: fixed;
+    top: 0;
+    padding-top: 15px;
+    left: 0;
+    height: 102px;
+    width: 100%;
+    background: var(--nav-bg);
+    z-index: 1000;
+    /* overflow: hidden;  */
+    border-bottom: 1px solid var(--line-color); /* Bareek line neeche */
+  }
+
+ .nav-container{
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.nav-menu{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+  .logo img {
+    height: 70px;
+    width: 250px;
+    margin-left: 10px;
+
+  }
+
+  /* .nav-menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 22px;
+  } */
+
+  .nav-menu > li {
+    position: relative;
+    
+    
+  }
+
+  .nav-menu > li > a {
+    color: var(--text-color);
+font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    font-size: 14px;
+    /* font-weight: 500; */
+    padding: 10px 0;
+    margin-left: 4px;
+    display: flex;
+    flex-direction: column;   /* Text ke niche arrow */
+    align-items: left;
+    justify-content: center;
+    gap: 3px;
+    line-height: 1.2;
+    transition: color 0.3s;
+}
+
+.dropdown-arrow {
+    font-size: 8px;
+    line-height: 2;
+}
+
+  .nav-menu > li > a:hover {
+    color: #ffb703;
+
+  }
+
+ 
+
+  /* 3. DROPDOWN - Hover par same style */
+  .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--dropdown-bg);
+    min-width: 240px;
+    padding: 10px 0;
+    border-radius: 4px;
+    box-shadow: 0px 0px 2px #ffffff, 0px 2px 7px rgba(163, 162, 162, 0.3);
+    opacity: 0;
+        border-color: white;
+     margin-left: -50px;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+ 
+  .nav-menu > li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown a {
+    display: block;
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    text-align: center; /* Pic me center me tha */
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .dropdown a:hover {
+    /* background: rgba(255,255,255,0.05); */
+    color: #ffb703;  }
+
+  /* 4. ORANGE CTA BUTTON */
+  .cta-btn {
+background:  #ffb703;
+    /* color: #222e3e; */
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 14px 10px;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 10;
+    /* margin-left: 5px; */
+   /* font-size: 13px; */
+    /* transition: background 0.3s; */
+    color: #222e3e; font-size: 13.5px; text-align: center; text-decoration: none;
+  }
+  .cta-btn:hover {
+background: linear-gradient(90deg, #febf01 25%, #fa9a0a);
+
+      outline: none;
+    border: none;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 14px 10px;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 10;
+    /* margin-left: 5px; */
+   /* font-size: 13px; */
+    /* transition: background 0.3s; */
+    color: #222e3e; font-size: 13.5px; text-align: center; text-decoration: none;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /* Demo content neeche */
+ /* 1. MODAL BACKGROUND OVERLAY + HOVER */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75); /* Dark hover background */
+    z-index: 1000;
+    display: none; /* Default band */
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .modal-overlay.active { display: flex; opacity: 1; }
+
+  /* 2. MODAL BOX - 2 HISSE */
+  .modal-box {
+    display: flex;
+    width: 90%;
+    max-width: 900px;
+    height: 100vh; /* Screen ka 90% */
+    max-height: 650px;
+    background: #ffffff;
+    /* border-radius: 6px; */
+    overflow: hidden; /* Bahar kuch na jaye */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s;
+  }
+  .modal-overlay.active .modal-box { transform: scale(1); }
+
+  /* LEFT SIDE - FIXED, SCROLL NAHI HOGA */
+  .modal-left {
+    width: 50%;
+    background: #1E2E47;
+    color: var(--text-color);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .hh { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; }
+  .modal-left h4 {     font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff; }
+  .modal-left h2 {     font-family: Arial, Helvetica, sans-serif; font-size: 32px; color:#f5b400; font-weight: 700; }
+  .modal-left p {     font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.6; color: #ffffff; }
+
+  .modal-right{
+    width: 60%;
+    padding: 30px 35px;
+    /* overflow-y: auto; */
+    /* overflow-x: hidden; */
+ overflow: hidden;
+    /* Firefox */
+        margin-top: -20px;
+
+    scrollbar-width: 50px;
+    scrollbar-color: #999 transparent;
+}
+.form-scroll::-webkit-scrollbar-button {
+    display: none;
+    width: 0;
+    height: 0;
+}
+.form-scroll{
+    height: 100%;
+    overflow-y: auto;
+    
+    padding-right: 20px;   /* jitna zyada karogi utna scrollbar left aayega */
+    margin-right: -10px;   
+}
+
+/* Chrome, Edge */
+
+
+.modal-right::-webkit-scrollbar-track{
+    
+    background: transparent;   /* Background remove */
+}
+
+.modal-right::-webkit-scrollbar-thumb{
+    background: #999;
+    border-radius: 20px;
+    border: none;
+}
+  .modal-right h3 { font-family: 'Playfair Display', serif; font-size: 28px; text-align: center; margin-bottom: 8px; color: #222; }
+  .modal-right > p {     font-family: Arial, Helvetica, sans-serif;text-align: center; font-size: 16px; color: #555; margin-bottom: 20px; }
+
+  /* FORM STYLING */
+  .form-group { margin-bottom: 12px; }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--hover-color);
+    box-shadow: 0 0 0 2px rgba(230, 126, 34, 0.2);
+  }
+  .form-group textarea { resize: vertical; min-height: 70px; }
+  .form-group input[type="file"] { padding: 8px; }
+
+  .checkbox-group { margin: 20px 0; }
+  .checkbox-group h4 { text-align: center; font-size: 22px; font-weight: 70; margin-bottom: 12px; }
+  .checkbox-grid { display: grid; grid-template-columns: 1fr 1fr; font-family: Arial, Helvetica, sans-serif; gap: 8px 15px; font-size: 14px; }
+  .checkbox-grid label { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+  .submit-btn {
+    width: 100%;
+    padding: 14px;
+    background: #f5b400;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 70;
+    /* text-transform: uppercase; */
+
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+  }
+
+
+
+
+  
+  .submit-btn:hover { background: #f5b400; }
+
+ .back img{
+    width: 300px;
+    height: 80px;
+    position: relative;
+    left: 30px;
+    top:-40px;
+ } 
+  
+
+
+.hamburger{
+    display:none;
+    width:35px;
+    height:28px;
+    cursor:pointer;
+    position:relative;
+}
+
+.hamburger span{
+    position:absolute;
+    width:100%;
+    height:3px;
+    background:#fff;
+    border-radius:5px;
+    left:0;
+    transition:.35s ease;
+}
+
+.hamburger span:nth-child(1){
+    top:0;
+}
+
+.hamburger span:nth-child(2){
+    top:12px;
+}
+
+.hamburger span:nth-child(3){
+    top:24px;
+}
+
+/* OPEN STATE */
+
+.hamburger.open span:nth-child(1){
+    transform:rotate(45deg);
+    top:12px;
+}
+
+.hamburger.open span:nth-child(2){
+    opacity:0;
+}
+
+.hamburger.open span:nth-child(3){
+    transform:rotate(-45deg);
+    top:12px;
+}
+
+.nav-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+/* =========================
+   LAPTOP SMALL (1024px)
+========================= */
+/* @media (max-width: 1040px){
+  .nav-menu{
+    gap: 12px;
+  }
+
+  .cta-btn{
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .logo img{
+    width: 200px;
+  }
+} */
+
+
+
+
+
+
+@media  (max-width:992px){
+
+/* Navbar */
+
+.hamburger{
+    display:block;
+}
+
+.cta-btn{
+    display:none;
+}
+.logo img {
+    height: 50px;
+    width: 190px;
+    margin-left: 10px;
+
+  }
+.nav-menu{
+    position:fixed;
+    top:99px;
+    left:-100%;
+    width:100%;
+    height:calc(100vh - 102px);
+
+    background:#222e3e;
+ 
+    flex-direction:column;
+    justify-content:flex-start;
+    align-items:center;
+
+    padding:35px 20px;
+
+    gap:22px;
+
+    overflow-y:auto;
+
+    transition:.35s;
+}
+
+.nav-menu.active{
+    left:0;
+}
+
+.nav-menu>li{
+    margin-top:-12px
+}
+
+.nav-menu>li>a{
+  position:relative;
+  top:-85px;
+  /* padding:8px; */
+    margin:0;
+    text-align:center;
+    align-items:center;
+    font-size:15px;
+}
+
+.dropdown{
+    position:static;
+    display:none;
+    opacity:1;
+    visibility:visible;
+    transform:none;
+    background:transparent;
+    box-shadow:none;
+    margin:0;
+    padding:0;
+}
+
+/* Hero */
+
+
+}
+
+/* =========================
+   TABLET (768px)
+========================= */
+@media (max-width: 768px){
+
+  .hamburger{
+    display: block;
+  }
+
+ .nav-menu{
+    position: fixed;
+    top:102px;
+    left:-100%;
+    width:100%;
+    height:calc(100vh - 102px);
+
+    background:#222e3e;
+
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+
+    padding:30px 20px 80px;
+
+    gap:20px;
+
+    overflow-y:auto;
+    overflow-x:hidden;
+
+    transition:.35s ease;
+}
+
+  .nav-menu.active{
+    left: 0;
+  }
+  .nav-menu > li{
+    width:30%;
+    text-align:center;
+}
+
+.nav-menu > li > a{
+  padding:10px;
+    margin-left:0;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+  
+}
+
+.dropdown{
+    text-align:center;
+    padding-left:0;
+    border-bottom:1px solid #ffb703;
+    padding-bottom:12px;
+    margin-bottom:12px;
+}
+
+.dropdown a{
+    text-align:center;
+}
+
+.nav-menu::-webkit-scrollbar{
+    width:0;
+}
+
+.nav-menu{
+    scrollbar-width:none;
+}
+
+  /* CTA BUTTON HIDE ON TABLET */
+  .cta-btn{
+    display: none;
+  }
+
+  .dropdown{
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding-left: 20px;
+  }
+}
+
+@media (max-width:600px){
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+    height:8a0px;
+    padding-top:10px;
+}
+
+.logo img{
+    margin-top: 20px;
+    width:150px;
+    height:auto;
+}
+
+.nav-menu{
+    position: fixed;
+    top: 102px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 102px);
+
+    background: #222e3e;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 30 20px 20px;   /* upar ka gap remove */
+    gap: 0;                 /* items ka extra gap remove */
+
+    overflow-y: auto;
+    transition: .35s ease;
+}
+
+
+.nav-menu > li{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.nav-menu > li > a{
+    padding:14px 0;
+    margin:0;
+}}
+
+
+
+@media (max-width: 400px){
+
+  .hamburger{
+    display: block;
+  }
+
+ .nav-menu{
+    position: fixed;
+    top: 102px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 102px);
+
+    background: #222e3e;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 30 20px 20px;   /* upar ka gap remove */
+    gap: 0;                 /* items ka extra gap remove */
+
+    overflow-y: auto;
+    transition: .35s ease;
+}
+
+  .nav-menu.active{
+    left: 0;
+  }
+ .nav-menu > li{
+    width:100%;
+    margin:0;
+    padding:0;
+}
+
+.nav-menu > li > a{
+    padding:14px 0;
+    margin:0;
+}
+.dropdown{
+    text-align:center;
+    padding-left:0;
+    border-bottom:1px solid #ffb703;
+    padding-bottom:12px;
+    margin-bottom:12px;
+}
+
+.dropdown a{
+    text-align:center;
+}
+
+.nav-menu::-webkit-scrollbar{
+    width:0;
+}
+
+.nav-menu{
+    scrollbar-width:none;
+}
+
+  /* CTA BUTTON HIDE ON TABLET */
+  .cta-btn{
+    display: none;
+  }
+
+  .dropdown{
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding-left: 20px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* Orange line - start me navbar ke peeche */
+
+/* =====================================
+        TABLET
+===================================== */
+
+@media (max-width:991px){
+
+.modal-box{
+    width:95%;
+    max-width:700px;
+    max-height:90vh;
+}
+
+.modal-left{
+    width:35%;
+    padding:25px 20px;
+}
+
+.modal-left h2{
+    font-size:26px;
+}
+
+.modal-right{
+    width:65%;
+    padding:25px;
+}
+
+.back img{
+    width:200px;
+    height:auto;
+    left:0;
+    top:0;
+}
+
+.hh{
+    width:60px;
+    height:60px;
+}
+
+.checkbox-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+
+/* =====================================
+            MOBILE
+===================================== */
+
+@media (max-width:768px){
+
+.modal-box{
+    display:block;
+    width:90%;
+    max-width:700px;
+    height:auto;
+    max-height:100vh;
+    overflow:hidden;
+}
+
+/* Left side hide */
+
+.modal-left{
+    display:none;
+}
+
+/* Form full width */
+
+.modal-right{
+    width:100%;
+    margin-top:0;
+    padding:25px 20px;
+    overflow:hidden;
+}
+
+.form-scroll{
+    height: 85vh;
+    overflow-y:auto;
+    padding-right:10px;
+    margin-right:0;
+}
+
+.modal-right h3{
+    font-size:30px;
+}
+
+.modal-right>p{
+    font-size:15px;
+}
+
+.checkbox-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:15px;
+    padding:13px;
+}
+
+.submit-btn{
+    width:100%;
+    height:52px;
+    margin-top: -10px;
+    font-size:16px;
+}
+
+}
+@media (max-width:425px){
+
+.modal-box{
+    display:block;
+    width:90%;
+    max-width:400px;
+    height:auto;
+    max-height:100vh;
+    overflow:hidden;
+}
+
+/* Left side hide */
+
+.modal-left{
+    display:none;
+}
+
+/* Form full width */
+
+.modal-right{
+    width:100%;
+    margin-top:0;
+    padding:25px 20px;
+    overflow:hidden;
+}
+
+.form-scroll{
+    height: 85vh;
+    overflow-y:auto;
+    padding-right:10px;
+    margin-right:0;
+}
+
+.modal-right h3{
+    font-size:26px;
+}
+
+.modal-right>p{
+    font-size:15px;
+}
+
+.checkbox-grid{
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:15px;
+    padding:13px;
+}
+
+.submit-btn{
+    width:100%;
+    height:52px;
+    margin-top: -10px;
+    font-size:16px;
+}
+
+}
+
+/* =====================================
+        SMALL MOBILE
+===================================== */
+/* 
+@media (max-width:480px){
+
+.modal-box{
+    width:96%;
+    max-height:92vh;
+}
+
+.modal-right{
+    padding:20px 15px;
+}
+
+.modal-right h3{
+    font-size:22px;
+}
+
+.modal-right>p{
+    font-size:14px;
+}
+
+.checkbox-group h4{
+    font-size:18px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:14px;
+    padding:12px;
+}
+
+.checkbox-grid label{
+    font-size:13px;
+}
+
+.submit-btn{
+    font-size:15px;
+}
+
+} */
+
+
+/* =====================================
+        EXTRA SMALL
+===================================== */
+
+/* @media (max-width:360px){
+
+.modal-right{
+    padding:18px 12px;
+}
+
+.modal-right h3{
+    font-size:20px;
+}
+
+.modal-right>p{
+    font-size:13px;
+}
+
+.checkbox-group h4{
+    font-size:17px;
+}
+
+.checkbox-grid label{
+    font-size:12px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    font-size:13px;
+}
+
+} */
+
+
+
+/* Orange Scroll Line */
+/* Orange Gradient Bar */
+.Gradients{
+    position: fixed;
+    top: 85px;          /* Start me navbar ke thora andar */
+    left: 0;
+    width: 100%;
+    height: 4px;
+
+    box-shadow: 0 2px 12px rgb(98, 97, 97);
+
+    transition: top .35s ease;
+    z-index: 999;       /* Navbar (1000) se neeche */
+}
+
+/* Scroll hone ke baad */
+.Gradients.scrolled{
+    top: 97px;         /* Yahan uski final position */
+}
+
+
+/* Orange line - start me navbar ke peeche */
+
+
+
+
+/* Close button hidden by default */
+.modal-close-btn{
+    display:none;
+}
+
+/* Mobile only */
+@media (max-width:768px){
+
+.modal-close-btn{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    position:absolute;
+    top:12px;
+    right:12px;
+
+    width:38px;
+    height:38px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#f5b400;
+    color:#222e3e;
+
+    font-size:28px;
+    font-weight:bold;
+    cursor:pointer;
+
+    z-index:9999;
+}
+
+.modal-right{
+    position:relative;
+    padding-top:55px;
+}
+
+.modal-close-btn:hover{
+    background:#fa9a0a;
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.about-section {
+  /* max-width: 1200px; */
+  margin: 0 auto;
+  margin-top: 70px;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.tagline {
+     color: #e6a300;
+    font-size: 27px !important;
+    margin: 0 auto;
+    letter-spacing: 0.0em;
+    margin-bottom: 20px;
+  font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    
+    width: 90%;
+}
+
+.main-heading {
+     letter-spacing: 0.0em;
+  color: #222e3e;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.sub-heading-orange {
+  color: #f5b400;
+  font-size: 28px;
+  font-weight: 600;
+  margin-top: 30px;
+}
+
+.para {
+      font-size: 17px;
+    line-height: 1.7;
+    color: #555;
+ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  max-width: 950px;
+  margin: 0 auto 18px auto;
+}
+
+.book-gallery {
+  margin: 60px 0;
+}
+
+.book-gallery img {
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.platforms {
+  margin: 60px 0 40px 0;
+}
+
+.platform-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.platform-logos img {
+  height: 45px;
+  object-fit: contain;
+  opacity: 0.85;
+  filter: grayscale(10%);
+}
+
+.team-info {
+  margin-top: 70px;
+}
+
+
+/* ==========================================
+   ABOUT SECTION - 991px
+========================================== */
+@media (max-width:991px){
+
+.about-section{
+    padding:70px 30px;
+    margin-top:60px;
+}
+
+.tagline{
+    font-size:24px !important;
+    width:95%;
+    line-height:1.5;
+}
+
+.main-heading{
+    font-size:34px;
+    line-height:1.3;
+}
+
+.sub-heading-orange{
+    font-size:25px;
+}
+
+.para{
+    /* font-size:16px; */
+    line-height:1.8;
+    max-width:100%;
+}
+
+.book-gallery{
+    margin:50px 0;
+}
+
+.book-gallery img{
+    max-width:100%;
+}
+
+.platform-logos{
+    gap:18px;
+}
+
+
+.team-info{
+    margin-top:60px;
+}
+
+}
+
+
+/* ==========================================
+   ABOUT SECTION - 768px
+========================================== */
+@media (max-width:768px){
+
+.about-section{
+    padding:60px 20px;
+    margin-top:60px;
+}
+
+.tagline{
+    font-size:21px !important;
+    width:100%;
+    line-height:1.5;
+}
+
+.main-heading{
+    font-size:30px;
+    line-height:1.35;
+}
+
+.sub-heading-orange{
+    font-size:23px;
+    line-height:1.4;
+}
+
+.para{
+    /* font-size:15px; */
+    line-height:1.8;
+}
+
+.book-gallery{
+    margin:40px 0;
+}
+
+.platforms{
+    margin:40px 0;
+}
+
+.platform-logos{
+    gap:15px;
+}
+
+
+
+.team-info{
+    margin-top:50px;
+}
+
+}
+
+/* ==========================================
+   ABOUT SECTION - 600px
+========================================== */
+@media (max-width:600px){
+
+.about-section{
+    padding:45px 15px;
+    margin-top:70px;
+}
+
+.tagline{
+    font-size:18px !important;
+    line-height:1.6;
+}
+
+.main-heading{
+    font-size:30px;
+    line-height:1.4;
+}
+
+.main-heading br{
+    display:none;
+}
+
+.sub-heading-orange{
+    font-size:20px;
+    line-height:1.4;
+}
+
+.para{
+    /* font-size:14px; */
+    line-height:1.8;
+}
+
+.book-gallery{
+    margin:35px 0;
+}
+
+.book-gallery img{
+    width:100%;
+}
+
+.platforms{
+    margin:35px 0;
+}
+
+.platform-logos{
+    gap:12px;
+    justify-content:center;
+}
+
+
+
+.team-info{
+    margin-top:40px;
+}
+
+}
+
+
+
+
+
+
+ .hush-section {
+     background: #f5b4001f;
+    width: 100%;
+    padding: 80px 5%;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .hush-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr; /* left bara */
+    gap: 50px;
+    align-items: start;
+  }
+
+  /* LEFT SIDE - ACCORDION */
+  .hush-left h2 {
+     color: #222e3e !important;
+    font-size: 40px !important;
+    font-family: 'Playfair Display', serif;
+    /* font-size: 28px; */
+    /* color: #4A5A6A; */
+    line-height: 1.2;
+   position:relative;
+   /* top: -80px; */
+    font-weight: 500;
+    font-weight: 400;
+    margin-bottom: 35px;
+    border-bottom: 1px solid #E0D0CE;
+    padding-bottom: 15px;
+  }
+
+  .accordion-item {
+    border-bottom: 1px solid #E0D0CE;
+    padding: 20px 0;
+  }
+  .accordion-header {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1e1d1d;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .accordion-header .arrow { 
+    font-size: 30px; 
+    color: #999; 
+    transition: transform 0.3s; 
+  }
+  .accordion-header.active .arrow { transform: rotate(90deg); } /* pic jaisa > se v ban jaye */
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.7;
+    
+  }
+  .accordion-content p { padding-top: 15px; }
+
+  /* RIGHT SIDE - FORM with border */
+  .hush-form {
+    background: #fbe4a61f;
+    padding: 35px 30px;
+   border: 4px solid #000000;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 8px 30px rgba(0,0,0,0.06); */
+  }
+  .hush-form .form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  .hush-form input, .hush-form select, .hush-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+border: 2px solid #ededed;
+    border-radius: 5px;
+    font-size: 14px;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 15px;
+    outline: none;
+    background: #fff6f6;
+  }
+  .hush-form input:focus, .hush-form select:focus, .hush-form textarea:focus {
+    border-color: #F08A4A;
+  }
+  .hush-form input.error, .hush-form select.error, .hush-form textarea.error {
+    border-color: red; /* error pe red border */
+  }
+  .hush-form label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .hush-form .checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 15px 0 25px 0;
+  }
+  .hush-form .checkbox-group label {
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    color: #444;
+  }
+  .hush-form .checkbox-group input { width: auto; margin: 0; }
+  .hush-form h3 {
+    font-size: 18px;
+    color: #3A3A3A;
+    margin-bottom: 15px;
+  }
+  .hush-btn {
+    background: #F08A4A; /* orange button */
+   background: linear-gradient(90deg, #febf01 25%, #fa9a0a); border: 2px solid #fdbc01;
+    border-radius: 8px;
+    color: #222e3e;
+    display: inline-block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    outline: none;
+    /* margin-top: 20px; */
+    padding: 16px 13px;
+    width: 320px;
+    height: 50px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    text-decoration: none;
+  }
+  .hush-btn:hover { background: #fff;
+    border: 2px solid #222e3e;
+    color: #222e3e;
+ font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    outline: none;
+    /* padding: 10px 144px; */
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    border-radius: 8px;
+    /* width: 250px; */
+    color: #222e3e;
+    /* margin-top: 10px; */
+    display: inline-block; }
+  .error-text { color: red; font-size: 12px; margin-top: -10px; margin-bottom: 10px; display: none; }
+
+  /* MOBILE - LEFT UPER, FORM NICHE */
+  @media(max-width: 992px) {
+    .hush-container {
+      max-width: 70%;
+      grid-template-columns: 1fr;
+    }
+  }
+  @media(max-width: 768px) {
+    .hush-container {
+      max-width: 90%;
+      grid-template-columns: 1fr;
+    }
+    .hush-section { padding: 50px 4%; }
+    .hush-left h2 { font-size: 28px; }
+    .hush-form .form-row { flex-direction: column; gap: 0; }
+    .hush-form .checkbox-group { grid-template-columns: 1fr 1fr; }
+  }
+
+
+
+
+
+
+
+  
+  .site-footer {
+    background: linear-gradient(to bottom, #222e3e 0%, #222e3e 100%); /* pic wala dark bg */
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    padding: 70px 6% 0 6%;
+  
+  }
+
+  .footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    letter-spacing: 0.4px;
+    grid-template-columns: 2.2fr 1fr 1fr 1fr; /* About bara, baaki 3 chote */
+    gap: 80px; /* PIC JESA BARA GAP */
+  }
+
+  /* LOGO */
+ 
+  
+
+  /* ABOUT TEXT */
+  .footer-about p {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #ffffff; /* halka grey blue */
+  }
+
+  /* HEADINGS */
+  .footer-col h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    color: #f5b400; /* orange heading */
+    margin-bottom: 25px;
+    font-weight: 400;
+  }
+
+  /* LINKS */
+  .footer-col ul {
+    list-style: none;
+  }
+  .footer-col ul li {
+    margin-bottom: 14px; /* PIC JESA GAP */
+  }
+  .footer-col ul li a {
+    color: hsl(0, 0%, 100%);
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+  }
+  .footer-col ul li a:hover {
+    color: #F08A4A;
+  }
+
+  /* BOTTOM BAR */
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    text-align: center;
+    padding: 25px 0;
+    margin-top: 60px;
+    font-size: 16px;
+    color: #ffffff;
+  }
+
+  /* MOBILE */
+  @media(max-width: 1100px) {
+    .footer-container {
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+    }
+  }
+
+
+  
+@media (max-width:768px){
+
+.site-footer{
+    padding:50px 5% 0;
+}
+
+.footer-container{
+    grid-template-columns:1fr;
+    gap:35px;
+}
+
+/* Mobile par sirf text center hoga */
+
+.footer-about,
+.footer-col{
+    text-align:center;
+}
+
+.footer-logo{
+    display:flex;
+    justify-content:center;
+    margin-bottom:20px;
+}
+
+.footer-about img{
+    width:200px;
+    height:auto;
+}
+
+.footer-about p{
+    font-size:15px;
+}
+
+.footer-col ul{
+    padding:0;
+}
+
+.footer-bottom{
+    margin-top:40px;
+    font-size:15px;
+}
+
+}
+
+
+
+
+
+
+
+.team-section {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0px 20px;
+  padding-bottom: 60px;
+}
+
+.team-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+.team-member {
+  text-align: left;
+  background-color: #f5b4001f;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.team-img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  overflow: hidden;
+}
+
+.team-img img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.team-member:hover .team-img img {
+  transform: translateY(-5px);
+}
+
+.team-member h3 {
+  color: #040404;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 12px 0 4px 0;
+  font-family: sans-serif;
+  margin-left: 10px;
+}
+
+.team-member p {
+  color: #575757;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+  margin-left: 10px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================================
+   TEAM SECTION - 991px
+========================================== */
+@media (max-width:991px){
+
+.team-section{
+    padding:0 20px 60px;
+}
+
+.team-container{
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.team-img{
+    height:360px;
+    overflow:hidden;
+}
+
+.team-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+}
+
+.team-member h3{
+    font-size:18px;
+}
+
+.team-member p{
+    font-size:15px;
+}
+
+}
+
+
+/* ==========================================
+   TEAM SECTION - 768px
+========================================== */
+@media (max-width:768px){
+
+.team-section{
+    padding:0 20px 50px;
+}
+
+.team-container{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.team-img{
+    height:360px;
+    overflow:hidden;
+}
+
+.team-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+}
+
+.team-member h3{
+    font-size:18px;
+}
+
+.team-member p{
+    font-size:15px;
+}
+
+}
+
+/* ==========================================
+   TEAM SECTION - 600px & BELOW
+========================================== */
+@media (max-width:600px){
+
+.team-section{
+    padding:0 15px 45px;
+}
+
+.team-container{
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:25px;
+}
+
+.team-member{
+    width:95%;
+    max-width:420px;
+}
+
+.team-img{
+    height:460px;
+    overflow:hidden;
+}
+
+.team-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top center;
+}
+
+.team-member h3{
+    font-size:22px;
+    margin-top:15px;
+}
+
+.team-member p{
+    font-size:16px;
+    line-height:1.6;
+}
+
+}
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+
+
+  .popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+  }
+  .popup-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .popup-box {
+    background: #fff;
+    width: 90%;
+    height: auto;
+    max-width: 580px;
+    padding: 20px 40px;
+    border-radius: 12px;
+    position: relative;
+    text-align: center;
+    transform: scale(0.8);
+    transition: transform 0.4s ease;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+  }
+  .popup-overlay.active .popup-box {
+    transform: scale(1);
+  }
+
+  /* CLOSE BUTTON */
+  .popup-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    background: #4A4A4A;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    line-height: 30px;
+    transition: background 0.3s;
+  }
+  .popup-close:hover { background: #f5b400; }
+
+  /* HEADING */
+  .popup-box h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    margin-top: 5px;
+    color: #000000;
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  /* 20% OFF ANIMATION */
+  .popup-discount {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 600;
+    color: #f5b400; /* orange */
+    margin-bottom: 15px;
+    animation: pulse 1.5s infinite; /* bara chota */
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+  }
+
+  /* TEXT */
+  .popup-box p {
+    font-family: 'Lato', sans-serif;
+    font-size: 14.5px;
+    color: #3f3f3f;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  /* FORM */
+  .popup-form input {
+    width: 100%;
+    
+    padding: 12px 15px;
+    border: 1px solid #f5b400;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    outline: none;
+    font-family: 'Lato', sans-serif;
+  }
+  .popup-form input:focus { border-color: #f5b400; }
+  
+  .popup-form .phone-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 10px;
+    margin-bottom: 15px;
+  }
+  .popup-form .phone-group span { margin-right: 8px; font-size: 18px; }
+  .popup-form .phone-group input { border: none; margin: 0; padding-left: 0; }
+
+  .popup-btn {
+    background: #f5b400;
+    color: #fff;
+    width: 120px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin: 0px auto 0 auto;
+    display: block;
+  }
+  .popup-btn:hover { background: #f5b400; }
+
+  /* MOBILE */
+  @media(max-width: 767px) {
+   
+    .popup-box { padding: 25px 20px; height: auto;  }
+    .popup-discount { font-size: 34px; }
+    .popup-box h2 { font-size: 20px; }
+    .popup-btn {padding: 8px; margin-top: -10px;}
+    
+  }
+@media (max-width:767px){
+
+html,
+body{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    background:#fff;
+}
+
+footer{
+    margin-bottom:0 !important;
+    padding-bottom:0 !important;
+}
+
+body > *:last-child{
+    margin-bottom:0 !important;
+}
+
+}
+
+
+
+
+
+html,
+body{
+    width:100%;
+    overflow-x:hidden;
+}
+
+@media (max-width:768px){
+
+.hush-section{
+    padding:50px 15px;
+}
+
+.hush-container{
+    display:block;
+}
+
+.hush-left{
+    width:100%;
+}
+
+.hush-form{
+    width:100%;
+    max-width:100%;
+    margin:30px auto 0;
+    padding:20px 15px;
+    overflow:hidden;
+}
+
+.hush-form *{
+    max-width:100%;
+}
+
+.hush-form input,
+.hush-form select,
+.hush-form textarea{
+    width:100%;
+}
+
+.hush-form .checkbox-group{
+    grid-template-columns:1fr;
+}
+
+.hush-btn{
+    width:100%;
+}
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="Gradients"></div>
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <img src="logo.webp" alt="Logo"> <!-- Apna logo.png yahan lagao -->
+      </a>
+      <!-- HAMBURGER ICON -->
+<div class="hamburger" id="hamburger">
+  <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        
+        <li>
+            <a href="#">
+    <span>Services</span>
+    <span class="dropdown-arrow">▼</span>
+  </a>
+          <ul class="dropdown">
+            <a href="editing.html">Book Editing</a>
+            <a href="proofreading.html">Proofreading</a>
+            <a href="layout.html">Book Layout</a>
+            <a href="cover.html">Book Cover Design</a>
+            <a href="publishing.html">Childrens Book Publishing</a>
+            <a href="illustration.html">Book Illustration</a>
+            <a href="marketing.html">Book Marketing</a>
+            <a href="audio.html">Audiobook Publishing</a>
+            <!-- <a href="#">Author Website</a> -->
+          </ul>
+        </li>
+
+        <li>
+<a href="#">
+    <span>Locations</span>
+    <span class="dropdown-arrow">▼</span>
+  </a>          <ul class="dropdown">
+            <a href="lucationS.html">Book Publishing Sydney</a>
+            <a href="B.html">Book Publishing Brisbane</a>
+           <a href="P.html">Book Publishing Perth</a>
+            <a href="A.html">Book Publishing Adelaide</a>
+            <a href="M.html">Book Publishing Melbourne</a>
+          </ul>
+        </li>
+
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="packages.html">Packages</a></li>
+        <li><a href="freeQuote.html">Free Quote</a></li>
+        <!-- <li><a href="#" class="cta-btn" style="color: #222e3e; font-size: 14px; text-align: center;">BOOK A 30-MINUTE DISCOVERY CALL</a></li> -->
+      </ul>
+      <a href="#" class="cta-btn openModalBtn" >BOOK A 30-MINUTE DISCOVERY CALL</a>
+    </div>
+    <!-- <div class="nav-scroll-line"></div> -->
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<section class="about-section">
+
+  <div class="intro">
+    <p class="tagline">Turn Ideas into Published Success with Self Publishing Australia</p>
+    <h1 class="main-heading">Makes Amazon Book Publishing<br>Simple for Every Author</h1>
+    <p class="para">We founded Self Publishing Australia to help Australian authors simplify Amazon Kindle Direct Publishing.</p>
+    <p class="para">Too many talented writers from Sydney to Perth have struggled with formatting rejections, confusing KDP dashboards, and delayed launches. We change this!</p>
+    <p class="para">Our team brings together professional formatting, stunning cover design, and a 7-day turnaround, all customised specifically for the Australian market. Unlike international freelancers who don't understand local needs, we are your neighbours.</p>
+    <p class="para">We answer calls in your timezone, invoice in AUD, and celebrate your success as if it were our own. Because when you win, we win.</p>
+  </div>
+
+  <div class="book-gallery">
+    <img src="about-after-hero-image.webp" alt="Published Books">
+  </div>
+
+  <div class="platforms">
+    <div class="platform-logos">
+      <img src="amazon-kindle-marquee-img.webp" alt="Amazon Kindle" >
+        <img src="barnes-and-noble.webp"  alt="Barnes & Noble">
+        <img src="Google-Books-marquee-img.webp" alt="Google Books" >
+        <img src="smash-words.webp" alt="Smashwords" >
+        <img src="draft-and-digital.webp" alt="Draft2Digital" >
+      </div>
+    <!-- <h2 class="sub-heading-orange">Built For Authors Who Want Clarity and Control</h2> -->
+  </div>
+
+  <div class="team-info">
+    <h2 class="sub-heading-orange">Built For Authors Who Want Clarity and Control</h2><br>
+    <h1 class="main-heading">A dedicated team helping Australian authors publish, grow, and succeed through Amazon Self Publishing services</h1>
+    <p class="para">Self Publishing Australia was founded to solve a simple problem: Australian authors lacked a trusted, local partner for Amazon book publishing in Australia with sole focus on Amazon and self-publishing services. We filled that gap. Today, we are proud to be the go-to Amazon publishers for over 250+ authors across Sydney, Melbourne, Brisbane, Perth, Adelaide, and regional Queensland.</p>
+    <p class="para">Our Amazon Kindle Direct Publishing experts handle everything from professional formatting to cover design, ensuring your book meets global standards while feeling authentically local.</p>
+    <p class="para">Unlike other Self Publishing companies Australia, we guarantee publication in as little as 7 days with 100% royalties flowing directly to you. No rights grabbing. No hidden fees. Just honest, transparent publishing support from a team that genuinely loves books and the authors who write them. We are not just service providers. We are your publishing partners.</p>
+  </div>
+
+</section>
+
+
+
+
+
+
+
+<section class="team-section">
+  <div class="team-container">
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="Sarah-Mitchell-img.webp" alt="Sarah Mitchell">
+      </div>
+      <h3>Sarah Mitchell</h3>
+      <p>Chief Executive Officer</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="David-Brown-img.webp" alt="David Brown">
+      </div>
+      <h3>David Brown</h3>
+      <p>Chief Operating Officer</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="Jack-Thompson-img.webp" alt="Jack Thompson">
+      </div>
+      <h3>Jack Thompson</h3>
+      <p>Head Of Finance</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="Emma-Richardson-img.webp" alt="Emma Richardson">
+      </div>
+      <h3>Emma Richardson</h3>
+      <p>Head of Publishing Services</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="Liam-Anderson-img.webp" alt="Liam Anderson">
+      </div>
+      <h3>Liam Anderson</h3>
+      <p>Author Success Manager</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="Michael-Carter-img.webp" alt="Michael Carter">
+      </div>
+      <h3>Michael Carter</h3>
+      <p>Editorial Director</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="Harrison-Clarke-img.webp" alt="Harrison Clarke">
+      </div>
+      <h3>Harrison Clarke</h3>
+      <p>Chief Publishing Officer</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="James-Wilson-img.webp" alt="James Wilson">
+      </div>
+      <h3>James Wilson</h3>
+      <p>Senior Publishing Consultant</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="Daniel-Hughes-img.webp" alt="Daniel Hughes">
+      </div>
+      <h3>Daniel Hughes</h3>
+      <p>Production Manager</p>
+    </div>
+
+    <div class="team-member">
+      <div class="team-img">
+        <img src="olivia-bannete-img.webp" alt="Olivia Bannete">
+      </div>
+      <h3>Olivia Bannete</h3>
+      <p>Head of Author Relations</p>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <section class="hush-section">
+    <div class="hush-container">
+
+      <!-- LEFT SIDE -->
+      <div class="hush-left">
+        <h2>Hush Away Your Doubts</h2>
+        
+        <div class="accordion">
+          <div class="accordion-item">
+            <div class="accordion-header">How to publish a book on Amazon globally from Australia? <span class="arrow">›</span></div>
+            <div class="accordion-content"><p>Publishing globally from Australia is straightforward with our help. We handle your Amazon KDP publishing setup, ensuring your book reaches all international marketplaces including Amazon.com, Amazon.co.uk, and Amazon.ca. You simply provide your manuscript, and we manage metadata, pricing in AUD and other currencies, and global distribution. Within days, your book is available to millions of readers worldwide while you retain full royalties and control.</p></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">What is the cheapest way to publish on Amazon in the Australia? <span class="arrow">›</span></div>
+            <div class="accordion-content"><p>Our most affordable package starts at $XXX and includes basic formatting and Amazon KDP setup. You keep 100% royalties with zero hidden fees. Contact us for a custom quote based on your book.</p></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">How quick book publishing in Brisbane work? <span class="arrow">›</span></div>
+            <div class="accordion-content"><p>Our 7-day guarantee ensures your book is live on Amazon within a week after final approval of manuscript and cover. We handle everything from formatting to upload for Brisbane authors.</p></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">How much does it cost to publish on Amazon in Canberra? <span class="arrow">›</span></div>
+            <div class="accordion-content"><p>Cost depends on services you choose. Basic publishing starts at $XXX. With editing, cover design, and marketing it can go up. Book a free consultation for exact AUD pricing.</p></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">How long does it take to publish on Amazon in the Australia? <span class="arrow">›</span></div>
+            <div class="accordion-content"><p>Typically 5 to 7 business days after we receive your final manuscript and cover. If you need rush service, we can do it in 48 hours.</p></div>
+          </div>
+
+          <div class="accordion-item">
+            <div class="accordion-header">Who are the best Amazon publishers in the Australia? <span class="arrow">›</span></div>
+            <div class="accordion-content"><p>The best Amazon publishers in Gold Coast Australia and nationwide are those who combine local expertise with technical mastery. We are proudly recognized as a top choice because we offer end-to-end services, transparent AUD pricing, and a 7-day turnaround. Our Sydney, Melbourne, and Brisbane authors consistently recommend us.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE - FORM -->
+      <div class="hush-form">
+        <form id="hushForm" novalidate>
+          <div class="form-row">
+            <div style="width:100%">
+              <input type="text" id="fullName" placeholder="Full Name">
+              <div class="error-text" id="nameError">This field is required</div>
+            </div>
+            <div style="width:100%">
+              <input type="text" id="phone" placeholder="Enter Phone #">
+              <div class="error-text" id="phoneError">This field is required</div>
+            </div>
+          </div>
+          
+          <input type="email" id="email" placeholder="Enter Email Address">
+          <div class="error-text" id="emailError">Please enter valid email</div>
+
+          <input type="text" id="bookTitle" placeholder="Book Title">
+          
+          <select id="genre">
+            <option value="">Select Genre</option>
+            <option>Fiction</option>
+            <option>Non-Fiction</option>
+            <option>Romance</option>
+            <option>Horror</option>
+            <option>Self-Help</option>
+          </select>
+
+          <label>Attach Your File</label>
+          <input type="file" id="file">
+
+          <textarea id="description" rows="3" placeholder="Book Details / Description"></textarea>
+
+          <select id="country">
+            <option value="">Select Country</option>
+            <option>Australia</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>Canada</option>
+          </select>
+
+          <h3>What services are you looking for?</h3>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="service" value="Book Editing"> Book Editing</label>
+            <label><input type="checkbox" name="service" value="Book Cover Design"> Book Cover Design</label>
+            <label><input type="checkbox" name="service" value="Book Marketing"> Book Marketing</label>
+            <label><input type="checkbox" name="service" value="Proofreading"> Proofreading</label>
+            <label><input type="checkbox" name="service" value="Childrens Book"> Childrens Book</label>
+            <label><input type="checkbox" name="service" value="Audiobook"> Audiobook</label>
+            <label><input type="checkbox" name="service" value="Book Layout"> Book Layout</label>
+            <label><input type="checkbox" name="service" value="Book Publishing"> Book Publishing</label>
+            <label><input type="checkbox" name="service" value="Author Website"> Author Website</label>
+            <label><input type="checkbox" name="service" value="Book Illustration"> Book Illustration</label>
+          </div>
+
+          <button type="submit" class="hush-btn">Submit</button>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <!-- COL 1: ABOUT -->
+      <div class="footer-about">
+        <div class="footer-logo">
+          <img src="logo.webp" width="240" height="80" alt="">
+        </div>
+        <p>Self Publishing Australia is dedicated to helping new and experienced authors publish professionally on Amazon KDP and other leading global platforms. Our full-service business includes editing, formatting, cover design, publishing and marketing, so you keep 100% ownership and royalties. Australia-wide authors trust Self Publishing Australia to make their publishing journey easy with a transparent, proven process.</p>
+      </div>
+
+      <!-- COL 2: QUICK LINKS -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Packages</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Blogs</a></li>
+          <li><a href="#">Free Quote</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms & Conditions</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 3: SERVICES -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#">Book Editing</a></li>
+          <li><a href="#">Proofreading</a></li>
+          <li><a href="#">Book Layout</a></li>
+          <li><a href="#">Book Cover Design</a></li>
+          <li><a href="#">Children's Book Publishing</a></li>
+          <li><a href="#">Book Illustration</a></li>
+          <li><a href="#">Book Marketing</a></li>
+          <li><a href="#">Audiobook Publishing</a></li>
+          <li><a href="#">Author Website</a></li>
+        </ul>
+      </div>
+
+      <!-- COL 4: LOCATIONS + PACKAGES -->
+      <div class="footer-col">
+        <h4>Locations</h4>
+        <ul>
+          <li><a href="#">Book Publishing Sydney</a></li>
+          <li><a href="#">Book Publishing Melbourne</a></li>
+          <li><a href="#">Book Publishing Brisbane</a></li>
+          <li><a href="#">Book Publishing Perth</a></li>
+          <li><a href="#">Book Publishing Adelaide</a></li>
+        </ul>
+        
+        <h4 style="margin-top: 35px;">Packages</h4>
+        <ul>
+          <li><a href="#">Manuscript Rescue</a></li>
+          <li><a href="#">The Custom Package</a></li>
+          <li><a href="#">Multi Platform Package</a></li>
+          <li><a href="#">Global Distribution Package</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- COPYRIGHT -->
+    <div class="footer-bottom">
+      © 2026 Self Publishing Australia. All Rights Reserved.
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  <!-- KUCH BHI CONTENT YAHAN -->
+  <!-- <h1 style="text-align:center; margin-top:100px;"></h1> -->
+
+  <!-- POPUP -->
+  <div class="popup-overlay" id="popup">
+    <div class="popup-box">
+      <button class="popup-close" id="closePopup">×</button>
+      
+      <h2>Time to Launch Big</h2>
+      <div class="popup-discount">20% OFF</div>
+      <p>Get expert, author-friendly publishing that sells—quality, speed & support at the best price today!</p>
+
+      <form class="popup-form" id="popupForm">
+        <input type="text" placeholder="Enter Your Name" required>
+        <input type="email" placeholder="Enter Your Email" required>
+        <input type="text" placeholder="Enter Your Country" required>
+        
+        <div class="phone-group">
+          <span>🇦🇺</span>
+          <input type="text" placeholder="+61" required>
+        </div>
+
+        <button type="submit" class="popup-btn">Submit</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- 1. MODAL POPUP -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-box">
+      <!-- LEFT SIDE -->
+       
+      <div class="modal-left">
+        <div class="back">
+        <img src="logo.webp" alt="" >
+       </div><br>
+        <img class="hh" src="Harrison-Clarke.webp" alt="Harrison Clarke"> <!-- Demo pic -->
+        <h4>Harrison Clarke</h4>
+        <h2>Discovery Call</h2>
+        <p>Book a Free, No-Obligation Call to Discuss Your Publishing Needs.</p>
+      </div>
+
+      <!-- RIGHT SIDE SCROLL -->
+      <div class="modal-right">
+        <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+        <div class="form-scroll">
+        <h3>Reach Millions of Readers</h3>
+        <p>Self-publish print and digital books, and reach millions of readers around the world on Amazon.</p>
+        
+        <form id="discoveryForm" novalidate>
+          <div class="form-group"><input type="text" placeholder="Full Name" name="name" required></div>
+          <div class="form-group"><input type="email" placeholder="Email Address" name="email" required></div>
+          <div class="form-group"><input type="text" placeholder="Book Title" name="bookTitle" required></div>
+          <div class="form-group">
+            <select name="genre" required>
+              <option value="">Select Genre</option>
+              <option>Fiction</option><option>Non-Fiction</option><option>Biography</option><option>Children</option>
+            </select>
+          </div>
+          <div class="form-group"><input type="tel" placeholder="Phone Number" name="phone" required></div>
+          <div class="form-group"><input type="file" name="file"></div>
+          <div class="form-group"><textarea placeholder="Tell us about your Project" name="project"></textarea></div>
+          <div class="form-group">
+            <select name="country" required>
+              <option value="">Select Country</option>
+              <option>Australia</option><option>Pakistan</option><option>USA</option><option>UK</option>
+            </select>
+            </div>
+       
+
+          <div class="checkbox-group">
+            <h4>What services are you looking for?</h4>
+            <div class="checkbox-grid">
+              <label><input type="checkbox" name="services" value="Book Editing"> Book Editing</label>
+              <label><input type="checkbox" name="services" value="Proofreading"> Proofreading</label>
+              <label><input type="checkbox" name="services" value="Book Layout"> Book Layout</label>
+              <label><input type="checkbox" name="services" value="Book Cover Design"> Book Cover Design</label>
+              <label><input type="checkbox" name="services" value="Childrens Book Publishing"> Childrens Book Publishing</label>
+              <label><input type="checkbox" name="services" value="Book Illustration"> Book Illustration</label>
+              <label><input type="checkbox" name="services" value="Book Marketing"> Book Marketing</label>
+              <label><input type="checkbox" name="services" value="Audiobook Publishing"> Audiobook Publishing</label>
+              <label><input type="checkbox" name="services" value="Author Website"> Author Website</label>
+            </div>
+          </div>
+          <button type="submit" class="submit-btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+ 
+
+
+ <script>
+  const modal = document.getElementById('modalOverlay');
+const openButtons = document.querySelectorAll('.openModalBtn');
+  const form = document.getElementById('discoveryForm');
+
+openButtons.forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        modal.classList.add('active');
+        document.body.classList.add('modal-open');
+    });
+});
+
+  // 2. BACKGROUND PAR CLICK = FORM CLOSE
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) { // Sirf background par click
+      modal.classList.remove('active');
+      document.body.classList.remove('modal-open');
+    }
+  });
+
+  // 3. FORM VALIDATION - KHALI SUBMIT = ERROR
+  form.addEventListener('submit', (e) => {
+    e.preventDefault(); // Page reload roko
+    
+    if (!form.checkValidity()) {
+      form.reportValidity(); // Browser ka default error "Please fill out this field"
+      return;
+    }
+    
+    alert('Form Submitted Successfully!'); // Yahan API call lagegi
+    modal.classList.remove('active');
+    document.body.classList.remove('modal-open');
+    form.reset();
+  });
+
+
+
+
+
+
+
+
+const hamburger = document.getElementById("hamburger");
+const navMenu = document.getElementById("navMenu");
+
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("open");
+    navMenu.classList.toggle("active");
+});
+
+
+
+
+
+
+
+const dropdownParents = document.querySelectorAll(".nav-menu > li");
+
+dropdownParents.forEach((item) => {
+  item.addEventListener("click", () => {
+
+    // sirf mobile/tablet pe kaam kare
+    if (window.innerWidth <= 768) {
+
+      let dropdown = item.querySelector(".dropdown");
+
+      if (dropdown) {
+        dropdown.style.display =
+          dropdown.style.display === "block" ? "none" : "block";
+      }
+    }
+
+  });
+});
+
+
+const navbar = document.getElementById("navbar");
+const gradient = document.querySelector(".Gradients");
+
+window.addEventListener("scroll", () => {
+
+    if (window.scrollY > 0) {
+        navbar.classList.add("scrolled");
+        gradient.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+        gradient.classList.remove("scrolled");
+    }
+
+});
+
+
+
+
+
+
+
+
+// FORM VALIDATION - SAME AS PEHLE
+
+
+  // FORM VALIDATION JS - ERROR PE RED BORDER
+  document.getElementById('hushForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    let valid = true;
+
+    // Reset errors
+    document.querySelectorAll('.error-text').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('input, select').forEach(el => el.classList.remove('error'));
+
+    if(document.getElementById('fullName').value.trim() === ''){
+      document.getElementById('fullName').classList.add('error');
+      document.getElementById('nameError').style.display = 'block'; valid = false;
+    }
+    if(document.getElementById('phone').value.trim() === ''){
+      document.getElementById('phone').classList.add('error');
+      document.getElementById('phoneError').style.display = 'block'; valid = false;
+    }
+    let email = document.getElementById('email').value;
+    if(email === '' || !email.includes('@')){
+      document.getElementById('email').classList.add('error');
+      document.getElementById('emailError').style.display = 'block'; valid = false;
+    }
+
+    if(valid){
+      alert('Form Submitted Successfully! Our team will contact you within 24 hours.');
+      this.reset();
+    }
+  });
+
+  // PAGE LOAD PAR POPUP KHUD OPEN
+  window.addEventListener('load', function() {
+    document.getElementById('popup').classList.add('active');
+  });
+
+  // CROSS PAR CLOSE
+  document.getElementById('closePopup').addEventListener('click', function() {
+    document.getElementById('popup').classList.remove('active');
+  });
+
+  // OVERLAY PAR CLICK KARO TO BHI CLOSE
+  document.getElementById('popup').addEventListener('click', function(e) {
+    if(e.target === this) {
+      this.classList.remove('active');
+    }
+  });
+
+  // FORM SUBMIT
+  document.getElementById('popupForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    alert('Thank you! We will contact you soon.');
+    document.getElementById('popup').classList.remove('active');
+  });
+
+
+
+
+
+
+
+
+  const closeBtn = document.getElementById("modalCloseBtn");
+  closeBtn.addEventListener("click", function () {
+    modal.classList.remove("active");
+    document.body.classList.remove("modal-open");
+});
+
+</script>
+
+</body>
+</html>
