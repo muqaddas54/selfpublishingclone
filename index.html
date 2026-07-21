@@ -1035,20 +1035,35 @@ background: linear-gradient(90deg, #febf01 25%, #fa9a0a);
 
 
  .hero-section {
-    max-width: 1180px;
-    margin-top: 150px;
-    /* margin: 0 auto; */
-    padding: 0 30px;
-    display: flex;
-    gap: 30px;
+      width:100%;
+    max-width:950px;
+    margin:150px auto 0;
+    padding:0 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:40px;
+    box-sizing:border-box;
+
   }
-  .left-content { width: 61%; margin-left: 30px; }
-  .right-form { width: 39%;height: 750px; border: 4px solid #1c2228; padding: 20px; margin-top: 160px; margin-left: -80px; } /* Pic wala dark border */
+  .left-content {  flex:0 0 58%;
+    max-width:58%;
+    margin:0; }
+  .right-form { flex:0 0 42%;
+    max-width:42%;
+    margin:70px 0 0;
+    padding:20px;
+    height:auto;
+    border:4px solid #1c2228;
+    box-sizing:border-box; } /* Pic wala dark border */
 
   /* LEFT TEXT - PIC JAISE COLORS */
   .left-content h1 { font-family:  'Playfair Display'; line-height: 1.1;    font-size: 50px !important; color: #222e3e; font-weight: 500; }
   .left-content h1 span { color: #fa9a0a; } /* Amazon wala orange */
-  .left-content p {  width: 500px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   font-size: 20px !important; color: #000000; line-height: 1.7; margin-top: 14px; }
+  .left-content p {  width:100%;
+    max-width:100%;
+    font-size:20px;
+    line-height:1.7; }
   .left-content a{
      text-decoration: none;
   }
@@ -1165,11 +1180,12 @@ display: flex; align-items: flex-start; gap: 6px; font-size: 13px; color: #1f1f1
 }
   /* 2. MARQUEE LOGO LIST - NEECHE, CHOTI WIDTH */
   .marquee {
-    width: 70%; /* Pic me puri width nahi thi */
+   /* Pic me puri width nahi thi */
     /* margin: 30px auto 0 auto;  */
     margin-top: 40px;
     /* margin-left: 60px; */
-    width: 480px;
+    width:100%;
+    max-width: 480px;
     overflow: hidden;
     white-space: nowrap;
   }
@@ -1189,238 +1205,56 @@ display: flex; align-items: flex-start; gap: 6px; font-size: 13px; color: #1f1f1
 
 
 
-/* ==========================================
-   RESPONSIVE DESIGN
-========================================== */
-
-/* Large Desktop (1400px+) */
-/* @media (min-width:1400px){
+@media(max-width:992px){
 
 .hero-section{
-    max-width:1400px;
-    gap:70px;
-    align-items:flex-start;
-}
-
-.left-content{
-    width:60%;
-    margin-left:10;
-}
-
-.right-form{
-    width:40%;
-    margin:80px 0 0;
-    height:auto;
-    min-height:720px;
-}
-
-.left-content h1{
-    font-size:60px !important;
-}
-
-.left-content p{
-    width:100%;
-    max-width:650px;
-    font-size:22px !important;
-}
-
-.marquee{
-    width:100%;
-    max-width:650px;
-    margin:45px 0 0;
-}
-
-} */
-
-
-/* ==========================================
-        Laptop
-========================================== */
-
-/* @media (max-width:1200px){
-
-.hero-section{
-    max-width:1100px;
-    padding:0 25px;
+   display:flex;
+    flex-direction:column;
+    align-items:center;   /* Dono sections center ho jayenge */
     gap:40px;
 }
 
-.left-content{
-    width:58%;
-    margin-left:0;
+.left-content,
+.right-form{
+  width: 100%;
+    max-width:80%;
+    flex:100%;
+    margin: 0;
+    
 }
+ .marquee {
+   /* Pic me puri width nahi thi */
+    /* margin: 30px auto 0 auto;  */
+    margin-top: 40px;
+    /* margin-left: 60px; */
+    width:100%;
+    max-width: 99%;
+    overflow: hidden;
+    white-space: nowrap;
+  }
 
 .right-form{
-    width:42%;
-    margin:70px 0 0;
-    height:auto;
+    margin-top:0;
 }
 
 .left-content h1{
+  
     font-size:44px !important;
 }
-
-.left-content p{
-    width:100%;
-    font-size:18px !important;
-}
-
-.submit-btn{
-    width:100%;
-    padding:14px;
-}
-
-.submit-btn:hover{
-    width:100%;
-    padding:14px;
-}
-
-.marquee{
-    width:100%;
-    max-width:500px;
-    margin:35px 0 0;
-}
-
-} */
-
-
-/* ==========================================
-          Tablet
-========================================== */
-
-@media  (max-width:992px){
-
-
-
-/* Hero */
-
-.hero-section{
-  
-    display:flex;
-    flex-direction:column;
-  
-    max-width: auto;
-    margin-top: 150px;
-    /* margin: 0 auto; */
-    padding: 0 30px;
-    display: flex;
-    gap: 30px;
-  }
-  .left-content { width: auto;  margin-left: 100px; }
-
-    /* padding:0 30px; */
-
-
-/* .left-content{
-
-    width:100%;
-    text-align:center;
-    margin:0;
-} */
-
-.left-content h1{
-    width:700px;
-    /* font-size:50px !important; */
-    line-height:1.1;
-}
 .left-content h1 br{
-  display:none;
-}
-.left-content p br{
-  display:none;
+  display: none;
 }
 
 .left-content p{
-
-    width:700px;
-    /* max-width:1000px; */
-    
-    /* margin:20px auto; */
-  text-align:none;
-    /* font-size:20px !important; */
-
-    line-height:1.8;
+    font-size:21px !important;
 }
-
-.btn-orange,
-.btn-outline{
-
-    font-size:18px;
-
-    /* padding:14px 28px; */
-
-}
-.btn-outline{
-  margin-left:280px;
-  position:relative;
-  top:-55px;
-  /* margin-top:-120px; */
-}
- 
-.btn-outline:hover{
-   margin-left:280px;
-  /* margin-top:-70px; */
-  background: linear-gradient(90deg, #febf01 25%, #fa9a0a); border: 2px solid #fdbc01;
-    border-radius: 8px;
-    color: #222e3e;
-    display: inline-block;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: large;
-    outline: none;
-    padding: 10px 30px;
-    text-align: center;
-    transition: all 0.5s ease-in-out;
-}
-.marquee{
-
-    width:100%;
-
-    max-width:700px;
-
-    /* margin:30px auto; */
-}
-
-.right-form{
-
-    width:80%;
-     /* position: relative;
-     left: 90px; */
-    margin:0;
-    margin-left: 80px;
-    height:auto;
-
-    padding:25px;
-}
-
-.form-row{
-
-    flex-direction:column;
-}
-
-.form-row input{
-
-    width:100%;
-}
-
-.checkbox-wrapper{
-
-    flex-direction:column;
-}
-
-.checkbox-col{
-
-    width:100%;
-}
-
-.submit-btn,
-.submit-btn:hover{
-
-    width:100%;
-
-    padding:14px;
+.left-content br{
+  display: none;
 }
 
 }
+
+
 
 
 
@@ -1428,275 +1262,102 @@ display: flex; align-items: flex-start; gap: 6px; font-size: 13px; color: #1f1f1
           Mobile
 ========================================== */
 
-@media (max-width:768px){
-
-
+@media(max-width:768px){
 
 .hero-section{
-  
-    display:flex;
-    flex-direction:column;
-  
-    max-width: auto;
-    margin-top: 150px;
-    /* margin: 0 auto; */
-    padding: 0 30px;
-    display: flex;
-    gap: 30px;
-  }
-
-.left-content{
-    width:100%;
-    text-align:center;
-width: auto;  margin-left: 100px;
-   position: relative;
-   right: 100px;
+    padding:0 20px;
 }
+
 .left-content h1{
-    width:700px;
-    font-size:43px !important;
-    line-height:1.1;
+  text-align: center;
+    font-size:36px !important;
+}
+
+.left-content p{
+  text-align: center;
+    font-size:17px !important;
+}
+
+.btn-orange,
+.btn-outline{
+   display: block;
+    width: fit-content;   /* ya max-width:280px agar fixed width chahiye */
+    margin: 15px auto;
+}
+
+.marquee{
+    max-width:100%;
+}
+
+}
+
+
+
+
+@media(max-width:600px){
+
+.hero-section{
+    margin-top:120px;
+}
+
+.left-content h1{
+    font-size:38px !important;
 }
 .left-content h1 br{
-  display:none;
-}
-.left-content p br{
-  display:none;
+  display: none;
 }
 .left-content p{
-
-    width:100%;
-    font-size:21px !important;
-    line-height:1.8;
-}
-.btn-orange{
-  margin-left: -200px;
-    width:100%;
-    max-width:280px;
-    font-size:16px;
+    font-size:16px !important;
 }
 
-
-.btn-outline{
-    margin-right: -100px;
-    width:100%;
-    max-width:280px;
-    font-size:16px;
-}
-
-.marquee{
-
-    width:80%;
-   position:relative;
-   left:40px;
-    margin:20px auto;
-}
-
-.marquee-content{
-
-    gap:15px;
-}
-
-.marquee img{
-
-    height:22px;
-}
 
 .right-form{
-     position: relative;
-     left: -10px;
-    width:100%;
-    margin:0;
-    padding:18px;
-    height:auto;
-}
-
-.form-row{
-
-    flex-direction:column;
-}
-
-.form-row input{
-
-    width:100%;
-}
-
-.checkbox-wrapper{
-
-    flex-direction:column;
-}
-
-.checkbox-col{
-
-    width:100%;
-}
-
-.submit-btn,
-.submit-btn:hover{
-
-    width:100%;
-    padding:12px;
-}
-
-}
-
-
-
-
-@media (max-width:600px){
-
-
-.hero-section{
-    flex-direction:column;
-    margin-top:140px;
-    padding:0 15px;
-    gap:25px;
-}
-
-.left-content{
-    width:100%;
-    margin:0;
-    right:0;
-    text-align:center;
-}
-
-.left-content h1{
-    width:100%;
-    max-width: 500px;
-    margin-left: 30px;
-    font-size:45px !important;
-    line-height:1.2;
-}
-
-.left-content p{
-      max-width: 500px;
-    margin-left: 30px;
-    width:100%;
-    font-size:17px !important;
-    line-height:1.7;
-}
-
-.btn-orange,
-.btn-outline{
-    width:100%;
-    max-width:280px;
-    margin:10px auto;
-    margin-top: 35px;
-    display:block;
-}
-
-.marquee{
-    width:90%;
-    left:0;
-}
-
-.right-form{
-    width:90%;
-    margin:0;
-    left:0;
-    margin-left: 30px;
-    padding:15px;
-    height:auto;
-}}
-@media (max-width:480px){
-
-
-
-.hero-section{
-
-    display:flex;
-    flex-direction:column;
-    gap:25px;
-    padding:0 18px;
-}
-
-.left-content{
-    width:100%;
-    text-align:center;
-    /* max-width: 480px; */
-   position: relative;
-   left: -10px;
-   margin-left: 0px;
-   /* right: 25px; */
-}
-
-.left-content h1{
-      font-family: 'Playfair Display', serif;
-    width:100%;
-    max-width:400px;    font-size:35px !important;
-    line-height:1.1;
-}
-
-.left-content p{
-      width:100%;
-   max-width: 400px;
-    font-size:18px !important;
-    line-height:1.4;
-    left: 0px;
-    text-align: center;
-}
-
-.btn-orange,
-.btn-outline{
-
-     /* width:100%; */
-    max-width:280px;
-    margin:10px auto;
-    margin-top: 35px;
-    margin-left: 90px;
-    display:block;
-}
-
-.marquee{
-
-   width: 93%;
+  width: 100%;
+    max-width:90%;
+    flex:100%;
+    margin: 0;
     
-    margin-left: 25px;
 }
-
-.marquee-content{
-
-    gap:15px;
-}
-
-.marquee img{
-
-    height:22px;
-}
-
-.right-form{
-
-    width:100%;
-    margin:0;
-    padding:18px;
-    height:auto;
-}
-
 .form-row{
-
     flex-direction:column;
 }
 
 .form-row input{
-
     width:100%;
 }
 
 .checkbox-wrapper{
-
     flex-direction:column;
 }
 
 .checkbox-col{
-
     width:100%;
 }
 
-.submit-btn,
-.submit-btn:hover{
+}
 
-    width:100%;
+@media(max-width:480px){
+
+.hero-section{
+    padding:0 15px;
+}
+
+.left-content h1{
+    font-size:40px !important;
+}
+
+.left-content p{
+    font-size:19px !important;
+}
+
+.btn-orange,
+.btn-outline{
+    font-size:15px;
     padding:12px;
+}
+
+.services-title{
+    font-size:18px;
 }
 
 }
