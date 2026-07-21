@@ -1049,7 +1049,9 @@ background: linear-gradient(90deg, #febf01 25%, #fa9a0a);
   .left-content h1 { font-family:  'Playfair Display'; line-height: 1.1;    font-size: 50px !important; color: #222e3e; font-weight: 500; }
   .left-content h1 span { color: #fa9a0a; } /* Amazon wala orange */
   .left-content p {  width: 500px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;   font-size: 20px !important; color: #000000; line-height: 1.7; margin-top: 14px; }
-  
+  .left-content a{
+     text-decoration: none;
+  }
   .btn-orange { 
     background: linear-gradient(90deg, #febf01 25%, #fa9a0a); border: 2px solid #fdbc01;
     border-radius: 8px;
@@ -1596,7 +1598,7 @@ width: auto;  margin-left: 100px;
     padding:15px;
     height:auto;
 }}
-@media (max-width:400px){
+@media (max-width:480px){
 
 
 
@@ -1611,39 +1613,43 @@ width: auto;  margin-left: 100px;
 .left-content{
     width:100%;
     text-align:center;
-    max-width: 350px;
+    /* max-width: 480px; */
    position: relative;
-   right: 25px;
+   left: -10px;
+   margin-left: 0px;
+   /* right: 25px; */
 }
 
 .left-content h1{
       font-family: 'Playfair Display', serif;
-/* width: 500px; */
-    font-size:35px !important;
+    width:100%;
+    max-width:400px;    font-size:35px !important;
     line-height:1.1;
 }
 
 .left-content p{
-
-    width:100%;
+      width:100%;
+   max-width: 400px;
     font-size:18px !important;
     line-height:1.4;
+    left: 0px;
+    text-align: center;
 }
 
 .btn-orange,
 .btn-outline{
 
-     width:100%;
+     /* width:100%; */
     max-width:280px;
     margin:10px auto;
     margin-top: 35px;
-    margin-left: 60px;
+    margin-left: 90px;
     display:block;
 }
 
 .marquee{
 
-    width:100%;
+   width: 93%;
     
     margin-left: 25px;
 }
@@ -1869,19 +1875,17 @@ width: auto;  margin-left: 100px;
   }
   .btn-outlines {
     background: #fff;
-    border: 2px solid #222e3e;
+     border-radius: 8px;
     color: #222e3e;
- font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: inline-block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: large;
     outline: none;
-    /* padding: 10px 144px; */
-    text-align: center;
-    transition: all 0.5s ease-in-out;
-    border-radius: 8px;
+    /* margin-top: 20px; */
+    padding: 16px 13px;
     width: 190px;
-    color: #222e3e;
-    /* margin-top: 10px; */
-    display: inline-block;  }
+    text-align: center;
+    transition: all 0.5s ease-in-out;  }
 .btn-outlines:hover{
      background: linear-gradient(90deg, #febf01 25%, #fa9a0a); border: 2px solid #fdbc01;
     border-radius: 8px;
@@ -1935,6 +1939,7 @@ width: auto;  margin-left: 100px;
 @media (max-width:992px){
 
 .main-section{
+    
     padding:40px 25px;
     background-size:cover;
     margin-top: -50px;
@@ -2313,11 +2318,13 @@ right: 70px;
 
 
 
-@media (max-width:400px){
+@media (max-width:480px){
 
 .main-section{
-  margin-top: -40px;
-    padding:40px 18px;
+   background-size: cover;
+     background-size: 100% 100%;
+  /* margin-top: -40px; */
+    padding:20px 18px;
 }
 
 .top-heading{
@@ -2357,18 +2364,22 @@ right: 70px;
 .why-choose h3{
     width:100%;
         font-family: 'Playfair Display', serif;
-    font-size:35px !important;
+    font-size:45px !important;
     line-height:1.1;
     text-align:center;
+    font-weight: 500;
 }
 
 .why-choose p{
     width:100%;
-    max-width:300px;
+    max-width:450px;
     margin:15px auto 0;
-    font-size:17px !important;
+    font-size:19px !important;
     line-height:1.4;
     text-align:center;
+}
+.why-choose p br{
+    display: none;
 }
 /* .feature-img img{
   position: relative;
@@ -2379,20 +2390,23 @@ right: 70px;
     width:100%;
     max-width:400px;
     margin:0 auto;
-   
+   margin-top: 20px;
     padding:0 12px;
 }
 .feature-text p{
-  width:100%;
-  font-size: 17px;
-    max-width:300px;
+   width:100%;
+    max-width:450px;
+    margin:15px auto 0;
+    font-size:19px !important;
+    line-height:1.4;
+    text-align:center;
 }
 .feature-text h4{
   font-weight: 700px;
   margin-top: 10px;
   text-align: center;
   /* margin-left: 30px; */
-  font-size: 19px;
+  font-size: 23px;
 }
 .btn-oranges {
   /* padding: 0px 30px; */
@@ -2401,20 +2415,31 @@ right: 70px;
   
 }
 .btn-outlines{
-  height: 40px;
-  margin-top: 20px;
+  border-radius: 8px;
+    color: #222e3e;
+    display: inline-block;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: large;
+    outline: none;
+    margin-top: 20px;
+    padding: 16px 13px;
+    width: 190px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
 }
 .feature-text h4::before{
     display:none;
 }
 .btn-group{
+    /* flex-direction:column; */
   display: block;
   align-items: center;
   justify-content: center;
 text-align: center;
+ /* flex-direction:row; */
 /* margin-bottom: 90px; */
 position: relative;
-bottom: 40px;
+/* bottom: 40px; */
 
 }
 }
@@ -2829,11 +2854,11 @@ bottom: 40px;
     font-size:16px;
 }
 }
-@media (max-width:400px){
+@media (max-width:480px){
 
 .services-section{
     padding:50px 18px;
-    margin-top: -200px;
+    margin-top: -100px;
 }
 
 .section-header{
@@ -2843,7 +2868,7 @@ bottom: 40px;
 
 .section-header h2{
     top:0;
-    font-size:38px !important;
+    font-size:45px !important;
     font-weight:500;
     line-height:1;
 }
@@ -2854,9 +2879,10 @@ bottom: 40px;
   display: none;
 }
 .section-header p{
-    max-width:340px;
+    width: 100%;
+    max-width:400px;
     margin:15px auto 0;
-    font-size:18px !important;
+    font-size:19px !important;
     line-height:1.8;
 }
 
@@ -3304,7 +3330,7 @@ bottom: 40px;
 
 
 
-@media (max-width:400px){
+@media (max-width:480px){
 
 .tsp-testimonials-section{
     padding:55px 18px;
@@ -3320,7 +3346,7 @@ bottom: 40px;
 }
 
 .tsp-section-header h2{
-    font-size:38px !important;
+    font-size:42px !important;
     line-height:1;
 }
 .tsp-section-header h2 br{
@@ -3328,6 +3354,8 @@ bottom: 40px;
 }
 
 .tsp-section-header p{
+    width: 100%;
+    max-width: 400px;
     font-size:19px !important;
     line-height:1.7;
     
@@ -3347,10 +3375,11 @@ bottom: 40px;
 .tsp-testimonial-card{
   
     width:100%;
-    max-width:90%;
+    margin-bottom: 50px;
+    max-width:300px;
     position: relative;
     margin-left: 0px;
-    left: 15px;
+    left: 50px;
     /* margin: 0px; */
     padding:30px 20px;
     min-height:auto;
@@ -3867,38 +3896,41 @@ margin-left: 160px;
 
 
 
-@media (max-width:400px){
+@media (max-width:480px){
 
 .spa-process-section{
     padding:55px 18px;
 }
 
 .spa-container{
+  
     max-width:90%;
 }
 
 .spa-section-header{
+      width: 100%;
     margin-bottom:40px;
-    max-width: 350px;
+    /* max-width: 350px; */
 }
 
 .spa-section-header h2{
-    font-size:38px !important;
+    /* width: 100%;
+    max-width: 95%; */
+    font-size:40px !important;
     line-height:1;
     text-align: center;
 }
 .spa-section-header h2 br{
   display: none;
 }
-.spa-section-header h2 span br{
+/* .spa-section-header h2 span br{
   display: none;
-}
+} */
 
 .spa-section-header p{
-   width:100%;
-    max-width:400px;
+   
     margin:15px auto 0;
-    font-size:18px !important;
+    font-size:19px !important;
     line-height:1.8;
     text-align:center;
 }
@@ -3951,7 +3983,7 @@ margin-left: 160px;
 }
 
 .spa-process-text{
-    font-size:15px;
+    font-size:17px;
     line-height:1.8;
 }
 
@@ -4438,7 +4470,7 @@ margin-left: 160px;
 
 
 
-@media (max-width:400px){
+@media (max-width:480px){
 
     .awc-coverage-section{
         padding:50px 20px;
@@ -4460,7 +4492,7 @@ margin-left: 160px;
     }
 
     .awc-content h2{
-        font-size:38px !important;
+        font-size:43px !important;
         text-align:center;
         line-height: 1;
     }
@@ -4470,9 +4502,9 @@ margin-left: 160px;
 
     .awc-content p{
         width:100%;
-    max-width:400px;
+    max-width:380px;
     margin:15px auto 0;
-    font-size:18px !important;
+    font-size:19px !important;
     line-height:1.7;
     text-align:center;
     }
@@ -4858,14 +4890,14 @@ margin-left: 160px;
 
 
 
-@media (max-width:400px){
+@media (max-width:480px){
 
     .genre-section{
         padding:50px 20px;
     }
 
     .genre-heading{
-        font-size:35px !important;
+        font-size:45px !important;
         line-height:1;
         margin-left: 0px;
     }
@@ -4875,7 +4907,7 @@ margin-left: 160px;
     }
 
     .genre-text{
-        font-size:18px !important;
+        font-size:19px !important;
         line-height:1.8;
         margin-top:20px;
          margin-left: 0px;
@@ -5292,15 +5324,21 @@ width:100%;
 
 
 
-@media (max-width:400px){
+@media (max-width:480px){
 
 .pub-section{
     padding:60px 20px;
 }
 
 .pub-heading{
-    font-size:38px !important;
+    font-size:40px !important;
     line-height:1;
+}
+.pub-section h2{
+    font-size:42px !important;
+}
+.pub-section h2 br{
+   display: none;
 }
 .pub-heading br {
     display: none;
@@ -5336,7 +5374,7 @@ width:100%;
 
 .pub-logo-grid{
     gap:20px;
-      flex-direction:column;
+      flex-direction:row;
     gap:20px;
 }
 
@@ -5350,73 +5388,6 @@ width:100%;
 }
 
 }
-/* ===========================
-      Small Mobile
-=========================== */
-
-/* @media (max-width:480px){
-
-.pub-section{
-    padding:50px 15px;
-}
-
-.pub-heading{
-    font-size:24px !important;
-}
-
-.pub-text{
-    font-size:16px !important;
-}
-
-.pub-btn-primary,
-.pub-btn-outline{
-    width:100%;
-    height:52px;
-    font-size:16px;
-}
-
-.pub-logo-grid{
-    flex-direction:column;
-    gap:20px;
-}
-
-.pub-logo-grid img{
-    width:170px;
-    height:auto;
-}
-
-.pub-logo-grid img:last-child{
-    margin-top:0 !important;
-}
-
-} */
-
-
-/* ===========================
-      Extra Small Devices
-=========================== */
-
-/* @media (max-width:360px){
-
-.pub-heading{
-    font-size:22px !important;
-}
-
-.pub-text{
-    font-size:15px !important;
-}
-
-.pub-btn-primary,
-.pub-btn-outline{
-    font-size:15px;
-    height:50px;
-}
-
-.pub-logo-grid img{
-    width:150px;
-}
-
-} */
 
 
 
@@ -5625,6 +5596,10 @@ border: 2px solid #ededed;
     line-height: 1.9;
     color: #ffffff; /* halka grey blue */
   }
+  .footer-logo img{
+    width: 240px;
+    height: 80px;
+  }
 
   /* HEADINGS */
   .footer-col h4 {
@@ -5669,76 +5644,8 @@ border: 2px solid #ededed;
       gap: 50px;
     }
   }
-/* ==================================================
-                Large Laptop
-================================================== */
-/* 
-@media (max-width:1400px){
 
-.footer-container{
-    max-width:1200px;
-    gap:60px;
-}
-
-} */
-
-
-/* ==================================================
-                    Laptop
-================================================== */
-/* 
-@media (max-width:1200px){
-
-.site-footer{
-    padding:70px 4% 0;
-}
-
-.footer-container{
-    grid-template-columns:1.8fr 1fr 1fr 1fr;
-    gap:45px;
-}
-
-.footer-col h4{
-    font-size:22px;
-}
-
-} */
-
-
-/* ==================================================
-                    Tablet
-================================================== */
-
-/* @media (max-width:992px){
-
-.site-footer{
-    padding:60px 5% 0;
-}
-
-.footer-container{
-    grid-template-columns:1fr 1fr;
-    gap:45px;
-}
-
-.footer-about{
-    grid-column:1/-1;
-}
-
-.footer-about img{
-    width:220px;
-    height:auto;
-}
-
-.footer-about p{
-    max-width:100%;
-}
-
-} */
-
-
-/* ==================================================
-                Mobile Landscape
-================================================== */
+           
 
 @media (max-width:768px){
 
@@ -5764,10 +5671,7 @@ border: 2px solid #ededed;
     margin-bottom:20px;
 }
 
-.footer-about img{
-    width:200px;
-    height:auto;
-}
+
 
 .footer-about p{
     font-size:15px;
@@ -5788,41 +5692,6 @@ border: 2px solid #ededed;
 /* ==================================================
                 Small Mobile
 ================================================== */
-
-/* @media (max-width:480px){
-
-.site-footer{
-    padding:45px 20px 0;
-}
-
-.footer-about img{
-    width:180px;
-}
-
-.footer-col h4{
-    font-size:22px;
-    margin-bottom:18px;
-}
-
-.footer-about p{
-    font-size:14px;
-    line-height:1.8;
-}
-
-.footer-col ul li{
-    margin-bottom:12px;
-}
-
-.footer-col ul li a{
-    font-size:14px;
-}
-
-.footer-bottom{
-    padding:20px 0;
-    font-size:14px;
-}
-
-} */
 
 
 /* ==================================================
@@ -6113,77 +5982,6 @@ body > *:last-child{
 
 }
 
-/* =====================================
-        TABLET (991px - 768px)
-===================================== */
-
-/* =====================================
-        TABLET (991px - 768px)
-===================================== */
-
-
-
-/* ==========================================
-      DESKTOP RESPONSIVE
-   1200px ---- 1920px
-========================================== */
-
-
-
-
-/* ==========================================
-        MOBILE 600px
-========================================== */
-
-/* @media (max-width:600px){
-
-
-
-
-
-
-.tsp-testimonials-section{
-    padding:40px 15px;
-}
-
-.tsp-section-header h2{
-    font-size:45px !important;
-}
-
-.tsp-section-header p{
-    font-size:19px !important;
-}
-
-.tsp-testimonials-grid{
-    grid-template-columns:1fr;
-}
-
-.tsp-testimonial-card{
-    width:60%;
-    padding:25px 18px;
-    margin-left: 100px;
-}
-
-.tsp-client-img{
-    width:70px;
-    height:70px;
-}
-
-.tsp-quote-title{
-    font-size:18px;
-}
-
-.tsp-quote-text{
-    font-size:15px;
-}
-
-} */
-
-
-
-/* ==========================================
-          MOBILE 600px
-========================================== */
 
 @media (max-width:600px){
 
@@ -6221,10 +6019,7 @@ body > *:last-child{
     text-align:center;
 }
 
-.site-footer img{
-    max-width:180px;
-    height:auto;
-}
+
 
 .site-footer h3{
     font-size:20px;
@@ -6241,7 +6036,41 @@ body > *:last-child{
 }
 
 }
+ @media (max-width:480px){
 
+.site-footer{
+    padding:45px 20px 0;
+}
+
+.footer-logo img{
+   width: 90%;
+    height:100px;
+}
+
+.footer-col h4{
+    font-size:24px;
+    margin-bottom:18px;
+}
+
+.footer-about p{
+    font-size:16px;
+    line-height:1.8;
+}
+
+.footer-col ul li{
+    margin-bottom:12px;
+}
+
+.footer-col ul li a{
+    font-size:16px;
+}
+
+.footer-bottom{
+    padding:20px 0;
+    font-size:14px;
+}
+
+}
 </style>
 </head>
 <body>
@@ -6464,7 +6293,7 @@ body > *:last-child{
 
       <!-- 5. BUTTONS -->
       <div class="btn-group" >
-        <button style="cursor: pointer;" class="btn-oranges openModalBtn" >Start Your Author Journey</button>
+        <button style="cursor: pointer;" class="btn-oranges openModalBtn" >Start Your Author Journey</button><br>
       <a href="packages.html">  <button style="cursor: pointer;" class="btn-outlines">Let's Get Started</button></a>
       </div>
 
@@ -6946,7 +6775,7 @@ body > *:last-child{
       <!-- COL 1: ABOUT -->
       <div class="footer-about">
         <div class="footer-logo">
-          <img src="logo.webp" width="240" height="80" alt="">
+          <img src="logo.webp" alt="">
         </div>
         <p>Self Publishing Australia is dedicated to helping new and experienced authors publish professionally on Amazon KDP and other leading global platforms. Our full-service business includes editing, formatting, cover design, publishing and marketing, so you keep 100% ownership and royalties. Australia-wide authors trust Self Publishing Australia to make their publishing journey easy with a transparent, proven process.</p>
       </div>
