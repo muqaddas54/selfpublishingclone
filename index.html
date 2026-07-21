@@ -677,7 +677,7 @@ background: linear-gradient(90deg, #febf01 25%, #fa9a0a);
     top: 102px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 102px);
+    height: calc(99vh - 102px);
 
     background: #222e3e;
 
@@ -703,8 +703,11 @@ background: linear-gradient(90deg, #febf01 25%, #fa9a0a);
 }
 
 .nav-menu > li > a{
-    padding:14px 0;
+
+    padding:10px 0;
     margin:0;
+    position: relative;
+    top: -20px;
 }
 .dropdown{
     text-align:center;
@@ -2577,7 +2580,7 @@ position: relative;
 
 .section-header h2{
     top:0;
-    font-size:45px !important;
+    font-size:38px !important;
     font-weight:500;
     line-height:1;
 }
@@ -2591,7 +2594,7 @@ position: relative;
     width: 100%;
     max-width:400px;
     margin:15px auto 0;
-    font-size:19px !important;
+    font-size:18px !important;
     line-height:1.8;
 }
 
@@ -3046,7 +3049,8 @@ position: relative;
 }
 
 .tsp-container{
-    max-width:90%;
+    width:100%;
+    max-width:100%;
 }
 
 .tsp-section-header{
@@ -3055,7 +3059,7 @@ position: relative;
 }
 
 .tsp-section-header h2{
-    font-size:42px !important;
+    font-size:38px !important;
     line-height:1;
 }
 .tsp-section-header h2 br{
@@ -3065,7 +3069,7 @@ position: relative;
 .tsp-section-header p{
     width: 100%;
     max-width: 400px;
-    font-size:19px !important;
+    font-size:18px !important;
     line-height:1.7;
     
 }
@@ -3078,17 +3082,17 @@ position: relative;
 
 .tsp-testimonials-grid{
     grid-template-columns:1fr;
-    gap:22px;
+    /* gap:10px; */
 }
 
 .tsp-testimonial-card{
   
     width:100%;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
     max-width:300px;
     position: relative;
     margin-left: 0px;
-    left: 50px;
+    /* left: 50px; */
     /* margin: 0px; */
     padding:30px 20px;
     min-height:auto;
@@ -3625,7 +3629,7 @@ margin-left: 160px;
 .spa-section-header h2{
     /* width: 100%;
     max-width: 95%; */
-    font-size:40px !important;
+    font-size:37px !important;
     line-height:1;
     text-align: center;
 }
@@ -3657,10 +3661,10 @@ margin-left: 160px;
 
 .spa-process-card{
  width:100%;
-    max-width:95%;
+    /* max-width:100%; */
     position: relative;
     margin-left: 0px;
-    left: 8px;
+    left: 0px;
     /* margin: 0px; */
     padding:30px 20px;
     min-height:auto;
@@ -3692,7 +3696,7 @@ margin-left: 160px;
 }
 
 .spa-process-text{
-    font-size:17px;
+    font-size:16px;
     line-height:1.8;
 }
 
@@ -3706,6 +3710,7 @@ margin-left: 160px;
     max-width:30px; */
     text-align:center;
     margin-top: -5px;
+    font-size: 16px;
     padding: 10px 30px;
 }
 
@@ -4201,7 +4206,7 @@ margin-left: 160px;
     }
 
     .awc-content h2{
-        font-size:43px !important;
+        font-size:36px !important;
         text-align:center;
         line-height: 1;
     }
@@ -4227,11 +4232,11 @@ margin-left: 160px;
     .awc-btn-primary{
         width:100%;
         max-width:440px;
-        height:48px;
+        /* height:50px; */
         margin-left: 0px;
         position: relative;
         left: -20px;
-        font-size:16px;
+        font-size:15px;
         padding:14px;
     }
 
@@ -4616,8 +4621,8 @@ margin-left: 160px;
     }
 
     .genre-text{
-        font-size:19px !important;
-        line-height:1.8;
+        font-size:18px !important;
+        line-height:1.4;
         margin-top:20px;
          margin-left: 0px;
     }
@@ -5039,14 +5044,14 @@ width:100%;
     padding:60px 20px;
 }
 
-.pub-heading{
-    font-size:40px !important;
-    line-height:1;
-}
+
 .pub-section h2{
-    font-size:42px !important;
+    font-size:36px !important;
 }
 .pub-section h2 br{
+   display: none;
+}
+.pub-section h2 span br{
    display: none;
 }
 .pub-heading br {
@@ -5702,7 +5707,7 @@ body > *:last-child{
 }
 
 .hush-section h2{
-    font-size:40px !important;
+    font-size:36px !important;
 }
 .hush-form{
     max-width: 450px;
@@ -6330,7 +6335,7 @@ body > *:last-child{
     <div class="pub-container">
 
       <!-- 1. HEADING 1 -->
-      <h2 class="pub-heading">Join Your <span>Australian Neighbours</span> Who<br>Trusted Us To Publish Their Books</h2>
+      <h2 class="pub-heading">Join Your <span>Australian Neighbours</span> Who<br> Trusted Us To Publish Their Books</h2>
       
       <!-- 2. TEXT -->
       <p class="pub-text">Ready to publish books online on Amazon with the experts? Self Publishing Australia has helped 250+ authors across Sydney, Melbourne, Brisbane, Perth, and Adelaide bring over 30,000+ books to readers worldwide.</p>
